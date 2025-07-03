@@ -4,10 +4,11 @@
   --color-background--dark: #000000;
   --color-background--light: #f1f1f1;
   --color-background--primary: #ff0000;
+  --color-background--secondary: #ff7070;
 
   --color-text--default: #7c7c7c;
   --color-text--dark: #000000;
-  --color-text--light: #f1f1f1;
+  --color-text--light: #ffffff;
   --color-text--primary: #ff0000;
   --color-text--link: #ff7070;
 
@@ -15,6 +16,7 @@
   --color-border--dark: #000000;
   --color-border--light: #f1f1f1;
   --color-border--primary: #ff0000;
+  --color-border--tertiary: #b4b4b4;
 
   --gap: 12px;
   --gap--small: 10px;
@@ -34,13 +36,33 @@
 }
 
 a {
+  position: relative;
   color: var(--color-text--link);
   text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+a:not(.navbar--section-page-logo)::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: calc(20px / 2 - 2px);
+  left: 0;
+  background-color: var(--color-text--link);
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 a:hover {
   color: var(--color-text--primary);
-  text-decoration: line-through;
+  /* text-decoration: line-through; */
+
+  &:not(.navbar--section-page-logo)::before {
+    visibility: visible;
+    transform: scaleX(1);
+  }
 }
 
 a img {
@@ -53,16 +75,20 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
+  padding-top: calc(138.84px + 1px);
 }
 
 nav.navbar--section-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 16px 32px 16px var(--gap--medium);
   background-color: var(--color-background--default);
-
-  margin-bottom: calc(var(--gap--large) * 2);
+  z-index: 1;
 }
 
 /* Hide the main navigation label */
@@ -87,6 +113,107 @@ nav.navbar--section-page
   border-radius: 8px;
 }
 
+nav.navbar--section-page ul.navbar--section-page-list {
+  display: inline-flex;
+  gap: var(--gap--medium);
+  list-style: none;
+}
+
+div.banner-introduction {
+  position: relative;
+  background-color: #ddf4ff;
+  padding: 1rem 2rem;
+  text-align: start;
+  border-width: 1px 0 1px 0;
+  border-style: solid;
+  border-color: #54aeff66;
+  box-shadow: 0px -4px 8px -4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
 main.main--section-page {
-  padding: 0 32px;
+  position: relative;
+  background-color: var(--color-background--default);
+  padding: calc(var(--gap--large) * 2) 32px 0 32px;
+  overflow: hidden;
+  z-index: 2;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: var(--gap--medium);
+    right: var(--gap--medium);
+    width: 150px;
+    height: 150px;
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='5' cy='5' r='1' fill='%23999'/%3E%3C/svg%3E");
+    background-size: 10px;
+    background-repeat: repeat;
+    transition: width 1.5s ease, height 1.5s ease;
+    z-index: 0;
+
+    @media (max-width: 768px) {
+      width: 100px;
+      height: 100px;
+      background-size: 10px;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0px;
+    height: 0px;
+    background-color: var(--color-background--default);
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: var(--color-border--default);
+    z-index: -1;
+    transition: background-color 2.5s ease, width 3s ease, height 3s ease,
+      border-width 3s ease;
+  }
+
+  &.rendered-page::after {
+    width: 100%;
+    height: 100%;
+    background-color: #fffefe;
+    border-width: 0px;
+  }
+}
+
+main.main--section-page section.section--page:not(:last-child) {
+  margin-bottom: var(--gap--large);
+}
+
+main.main--section-page
+  section.section--page
+  div.section--page-content
+  :where(h1, h2, h3, h4, h5, h6).section--page-title {
+  margin-bottom: var(--gap--small);
+}
+
+main.main--section-page
+  section.section--page.title
+  div.section--page-content
+  :where(h1, h2, h3, h4, h5, h6).section--page-title {
+  font-size: 38px;
+  text-transform: uppercase;
+  margin-bottom: var(--gap--large);
+
+  &::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 2px;
+    background-color: var(--color-border--primary);
+    margin-top: var(--gap--small);
+  }
+}
+
+main.main--section-page
+  section.section--page.section--page-about
+  div.section--page-content
+  p.section--page-description {
+  line-height: 1.5;
 }
