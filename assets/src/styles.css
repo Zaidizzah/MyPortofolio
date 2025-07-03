@@ -1,513 +1,92 @@
-/* Custom styles */
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&display=swap");
+:root {
+  --color-background--default: #ffffff;
+  --color-background--dark: #000000;
+  --color-background--light: #f1f1f1;
+  --color-background--primary: #ff0000;
 
-body {
-  font-family: "Aboreto", sans-serif;
-  scroll-behavior: smooth;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #eeeeee, hsl(240 10% 96%));
+  --color-text--default: #7c7c7c;
+  --color-text--dark: #000000;
+  --color-text--light: #f1f1f1;
+  --color-text--primary: #ff0000;
+  --color-text--link: #ff7070;
+
+  --color-border--default: #7c7c7c;
+  --color-border--dark: #000000;
+  --color-border--light: #f1f1f1;
+  --color-border--primary: #ff0000;
+
+  --gap: 12px;
+  --gap--small: 10px;
+  --gap--medium: 15px;
+  --gap--large: 20px;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Aboreto", sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 18px;
 }
 
-.body::before {
-  --size: 45px;
-  --line: color-mix(in lch, canvasText, transparent 85%);
-  content: "";
-  min-height: 100vh;
-  min-width: 100vw;
-  position: fixed;
-  background: linear-gradient(
-        90deg,
-        var(--line) 1px,
-        transparent 1px var(--size)
-      )
-      50% 50% / var(--size) var(--size),
-    linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% /
-      var(--size) var(--size);
-  mask: linear-gradient(-25deg, transparent 30%, rgb(209, 204, 204));
-  top: 0;
-  transform-style: flat;
-  pointer-events: none;
-  opacity: 0.75;
-  z-index: -1;
+:where(p, span, i, a) {
+  color: var(--color-text--default);
 }
 
-.backdrop-filter {
-  backdrop-filter: blur(10px);
+a {
+  color: var(--color-text--link);
+  text-decoration: none;
 }
 
-header {
-  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+a:hover {
+  color: var(--color-text--primary);
+  text-decoration: line-through;
 }
 
-.card {
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out,
-    z-index 0.3s ease-in-out, scale 0.3s ease-in-out;
+a img {
+  text-decoration: none;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-  scale: 1.08;
-  z-index: 125 !important;
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.5s ease-out forwards;
-  opacity: 0;
-}
-
-/* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom transition for nav links */
-.logo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: #333;
-  margin-left: 1rem;
-}
-.logo svg {
-  margin-right: 0.5rem;
-}
-.logo span {
-  font-family: "Aboreto", sans-serif;
-  font-weight: bold;
-  font-size: 1.25rem;
-}
-.nav {
-  list-style-type: none;
-  display: flex;
-}
-.nav-link {
-  position: relative;
-  transition: color 0.3s ease;
-  color: #000000;
+body {
+  font-family: "Poppins", sans-serif;
 }
 
-.nav-link::after {
-  content: "";
+nav.navbar--section-page {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px 16px var(--gap--medium);
+  background-color: var(--color-background--default);
+
+  margin-bottom: calc(var(--gap--large) * 2);
+}
+
+/* Hide the main navigation label */
+nav.navbar--section-page h2.navbar--section-page-title.sr-only {
   position: absolute;
+  left: -9999px;
+  top: -9999px;
   width: 0;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: currentColor;
-  transition: width 0.3s ease;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
 }
 
-.nav-link:hover::after {
-  width: 100%;
-}
-#myNav {
-  display: none;
-}
-.nav-item {
-  margin: 0 10px;
-}
-.menu-icon {
-  display: none;
-  color: white;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-.menu-icon > .line {
-  display: block;
-  width: 25px;
-  height: 3px;
-  background-color: white;
-  margin: 5px 0;
-}
-@media screen and (max-width: 768px) {
-  .menu-icon {
-    background-color: #3333334d;
-    padding: 0.85rem;
-  }
-  #myNavHeader {
-    display: none;
-  }
-  #myNav {
-    display: block;
-  }
-  .nav#myNav {
-    display: none;
-    position: relative;
-    top: auto;
-    left: 0;
-    right: 0;
-    background-color: rgba(248, 249, 250, 0.9);
-    flex-direction: column;
-    padding: 1rem 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
-    z-index: 125 !important;
-  }
-  .nav#myNav.active {
-    display: block;
-    max-height: 352px;
-  }
-  .nav#myNav .nav-item {
-    margin: 0.5rem 0;
-  }
-  .menu-icon {
-    display: block;
-  }
-  .menu-icon.active > .line:first-child {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-  .menu-icon.active > .line:last-child {
-    transform: rotate(-45deg) translate(5px, -5px);
-  }
-}
-
-/* Add some spacing to sections */
-section {
-  padding: 80px 0;
-}
-
-/* Responsive image sizing */
-.img-fluid {
-  max-width: 100%;
+nav.navbar--section-page
+  a.navbar--section-page-logo
+  img.navbar--section-page-logo-img {
+  padding: 12px;
+  width: 150px;
   height: auto;
+  background-color: var(--color-background--default);
+  border-radius: 8px;
 }
 
-footer {
-  background-color: #fefae0;
-}
-
-#about-image,
-#about-description {
-  transition: all 0.5ms ease;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-    rgba(0, 0, 0, 0.22) 0px 15px 12px;
-}
-
-.social-icon {
-  transition: all 0.5ms ease;
-
-  &:hover {
-    transform: scale(1.2);
-  }
-}
-
-.parallax-background {
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: repeat;
-  background-size: cover;
-
-  background-image: url("image/leaves-3289964_1920.png");
-
-  &:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.15);
-  }
-}
-
-#about-description,
-#work-description {
-  outline: 3px solid rgba(255, 255, 255, 0.5);
-  border-radius: 3px;
-
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  backdrop-filter: blur(5px);
-  transition: all 0.5ms ease;
-}
-
-#about-description > h2,
-#about-description > p,
-#work-description > h2,
-#work-description > p {
-  &:hover {
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
-  }
-}
-
-#about-description > h2,
-#work-description > h2 {
-  -webkit-text-fill-color: #eeeeee;
-  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
-  -webkit-text-stroke: 1.45px black;
-}
-
-#about-description > p {
-  outline: 3px solid rgba(255, 255, 255, 0.681);
-  scale: 1.1;
-  background-color: #eeeeee6d;
-  -webkit-text-fill-color: #000000;
-  color: #000000;
-  padding: 15px;
-  border-radius: 5px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  backdrop-filter: blur(5px);
-}
-
-#work-description > p {
-  scale: 1;
-  background-color: #eeeeee6d;
-  -webkit-text-fill-color: #000000;
-  color: #000000;
-  padding: 15px;
-  border-radius: 5px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  backdrop-filter: blur(5px);
-}
-
-.gradient-footer {
-  height: 160px;
-  background: linear-gradient(to right, #ffd966, #fff2cc);
-  -webkit-mask-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAOklEQVQIW2NkQAZVi97/xyI2cQq3AUwREIHY//9/FDCOMUFEYZqAEkBtDA8fPvgoLCz8Eag5HqwKQQEApR8lnSRQBqAAAAAASUVORK5CYII=");
-  mask-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAOklEQVQIW2NkQAZVi97/xyI2cQq3AUwREIHY//9/FDCOMUFEYZqAEkBtDA8fPvgoLCz8Eag5HqwKQQEApR8lnSRQBqAAAAAASUVORK5CYII=");
-  -webkit-mask-size: 8px 8px;
-  mask-size: 8px 8px;
-  -webkit-mask-repeat: repeat;
-  mask-repeat: repeat;
-}
-
-/* Tambahkan style untuk tombol WhatsApp */
-.whatsapp-button {
-  position: fixed;
-  bottom: 20px;
-  right: 30px;
-  background-color: #25d366;
-  color: white;
-  border: none;
-  border-radius: 50px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease;
-  animation: shake 1s ease infinite;
-}
-
-.whatsapp-button:hover {
-  background-color: #128c7e;
-  animation: none;
-}
-
-.whatsapp-button svg {
-  width: 24px;
-  height: 24px;
-  margin-right: 8px;
-}
-
-@keyframes shake {
-  0% {
-    transform: translate(1px, 1px) rotate(0deg);
-  }
-  10% {
-    transform: translate(-1px, -2px) rotate(-1deg);
-  }
-  20% {
-    transform: translate(-3px, 0px) rotate(1deg);
-  }
-  30% {
-    transform: translate(3px, 2px) rotate(0deg);
-  }
-  40% {
-    transform: translate(1px, -1px) rotate(1deg);
-  }
-  50% {
-    transform: translate(-1px, 2px) rotate(-1deg);
-  }
-  60% {
-    transform: translate(-3px, 1px) rotate(0deg);
-  }
-  70% {
-    transform: translate(3px, 1px) rotate(-1deg);
-  }
-  80% {
-    transform: translate(-1px, -1px) rotate(1deg);
-  }
-  90% {
-    transform: translate(1px, 2px) rotate(0deg);
-  }
-  100% {
-    transform: translate(1px, -2px) rotate(-1deg);
-  }
-}
-
-/* Style untuk tombol Scroll to Top */
-.scroll-to-top {
-  position: fixed;
-  bottom: 80px;
-  right: 50px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  font-size: 24px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.scroll-to-top.visible {
-  opacity: 1;
-  visibility: visible;
-}
-
-.scroll-to-top:hover {
-  background-color: #0056b3;
-}
-
-/* Tooltip */
-.scroll-to-top::after {
-  content: "Scroll to top";
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #333;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 4px;
-  font-size: 12px;
-  white-space: nowrap;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-}
-
-.scroll-to-top:hover::after {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Animasi Bouncing */
-@keyframes bounce {
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-10px);
-  }
-  60% {
-    transform: translateY(-5px);
-  }
-}
-
-.scroll-to-top.visible {
-  animation: bounce 2s infinite;
-}
-
-/* lightbox image preview */
-.lightbox {
-  display: none;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.9);
-  z-index: 1550 !important;
-}
-
-.lightbox-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  width: 90%;
-  max-width: 800px;
-}
-
-.lightbox-content {
-  display: block;
-  width: 100%;
-  max-width: 700px;
-  max-height: 80vh;
-  margin: 0 auto;
-  animation: zoom 0.6s;
-}
-
-.lightbox-desc {
-  margin: auto;
-  display: block;
-  width: 80%;
-  max-width: 700px;
-  text-align: center;
-  color: #ccc;
-  padding: 10px 0;
-  height: 150px;
-}
-
-@keyframes zoom {
-  from {
-    transform: scale(0);
-  }
-  to {
-    transform: scale(1);
-  }
-}
-
-.lightbox .close {
-  position: absolute;
-  top: -40px;
-  right: 0;
-  color: #f1f1f1;
-  font-size: 40px;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.lightbox .close:hover,
-.lightbox .close:focus .lightbox {
-  color: #bbb;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-@media only screen and (max-width: 700px) {
-  .lightbox-content {
-    width: 100%;
-  }
+main.main--section-page {
+  padding: 0 32px;
 }
