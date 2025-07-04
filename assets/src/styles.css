@@ -6,7 +6,7 @@
   --color-background--primary: #ff0000;
   --color-background--secondary: #ff7070;
 
-  --color-text--default: #7c7c7c;
+  --color-text--default: #374151;
   --color-text--dark: #000000;
   --color-text--light: #ffffff;
   --color-text--primary: #ff0000;
@@ -49,7 +49,7 @@ a:not(.navbar--section-page-logo)::before {
   height: 2px;
   bottom: calc(20px / 2 - 2px);
   left: 0;
-  background-color: var(--color-text--link);
+  background-color: var(--color-text--primary);
   visibility: hidden;
   transform: scaleX(0);
   transition: visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
@@ -76,6 +76,7 @@ html {
 body {
   font-family: "Poppins", sans-serif;
   padding-top: calc(138.84px + 1px);
+  padding-bottom: calc(51.3px + 1px);
 }
 
 nav.navbar--section-page {
@@ -113,10 +114,85 @@ nav.navbar--section-page
   border-radius: 8px;
 }
 
-nav.navbar--section-page ul.navbar--section-page-list {
+nav.navbar--section-page div.navbar--section-page-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: inherit;
+  height: 100%;
+  padding: 0 calc(32px * 3) 0 32px;
+  background-color: var(--color-background--default);
+  border: 1px solid var(--color-border--tertiary);
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 1;
+}
+
+nav.navbar--section-page
+  div.navbar--section-page-toggle:has(
+    .navbar--section-page-toggle-checkbox:checked
+  )
+  ~ div.navbar--section-page-content {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+nav.navbar--section-page
+  div.navbar--section-page-content
+  ul.navbar--section-page-list {
+  height: inherit;
   display: inline-flex;
+  flex-wrap: wrap;
   gap: var(--gap--medium);
   list-style: none;
+
+  & li {
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+  }
+}
+
+nav.navbar--section-page
+  div.navbar--section-page-toggle
+  input[type="checkbox"] {
+  visibility: hidden;
+  display: none;
+}
+nav.navbar--section-page div.navbar--section-page-toggle {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  z-index: 2;
+}
+nav.navbar--section-page
+  div.navbar--section-page-toggle
+  .navbar--section-page-toggle-checkbox {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  opacity: 0;
+}
+nav.navbar--section-page div.navbar--section-page-toggle .label svg {
+  vertical-align: middle;
+}
+nav.navbar--section-page
+  div.navbar--section-page-toggle
+  .navbar--section-page-toggle-svg-path1 {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  transition: 0.5s all;
+}
+nav.navbar--section-page
+  div.navbar--section-page-toggle
+  .navbar--section-page-toggle-checkbox:checked
+  + label
+  svg
+  g
+  path {
+  stroke-dashoffset: 0;
 }
 
 div.banner-introduction {
@@ -127,36 +203,18 @@ div.banner-introduction {
   border-width: 1px 0 1px 0;
   border-style: solid;
   border-color: #54aeff66;
-  box-shadow: 0px -4px 8px -4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px -8px 12px -4px rgba(0, 0, 0, 0.1);
   z-index: 2;
 }
 
 main.main--section-page {
   position: relative;
   background-color: var(--color-background--default);
-  padding: calc(var(--gap--large) * 2) 32px 0 32px;
+  padding: calc(var(--gap--large) * 2) 32px;
+  border-bottom: 1px solid var(--color-border--default);
+  box-shadow: 0 8px 12px 4px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   z-index: 2;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: var(--gap--medium);
-    right: var(--gap--medium);
-    width: 150px;
-    height: 150px;
-    background-image: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='5' cy='5' r='1' fill='%23999'/%3E%3C/svg%3E");
-    background-size: 10px;
-    background-repeat: repeat;
-    transition: width 1.5s ease, height 1.5s ease;
-    z-index: 0;
-
-    @media (max-width: 768px) {
-      width: 100px;
-      height: 100px;
-      background-size: 10px;
-    }
-  }
 
   &::after {
     content: "";
@@ -165,7 +223,25 @@ main.main--section-page {
     left: 0;
     width: 0px;
     height: 0px;
-    background-color: var(--color-background--default);
+
+    --size: 75px;
+    --line: var(--color-background--light);
+    background: linear-gradient(
+          90deg,
+          var(--line) 1px,
+          transparent 1px var(--size)
+        )
+        calc(var(--size) * 0.36) 50% / var(--size) var(--size),
+      linear-gradient(var(--line) 1px, transparent 1px var(--size)) 0%
+        calc(var(--size) * 0.32) / var(--size) var(--size);
+    mask: linear-gradient(
+      -20deg,
+      transparent 50%,
+      var(--color-background--default)
+    );
+    transform-style: flat;
+    background-attachment: fixed;
+
     border-width: 0 1px 1px 0;
     border-style: solid;
     border-color: var(--color-border--default);
@@ -190,6 +266,8 @@ main.main--section-page
   section.section--page
   div.section--page-content
   :where(h1, h2, h3, h4, h5, h6).section--page-title {
+  text-transform: uppercase;
+  font-size: 24px;
   margin-bottom: var(--gap--small);
 }
 
@@ -198,8 +276,10 @@ main.main--section-page
   div.section--page-content
   :where(h1, h2, h3, h4, h5, h6).section--page-title {
   font-size: 38px;
+  font-weight: 900;
   text-transform: uppercase;
   margin-bottom: var(--gap--large);
+  text-shadow: 4px 5px 0 var(--color-background--light);
 
   &::after {
     content: "";
@@ -212,8 +292,213 @@ main.main--section-page
 }
 
 main.main--section-page
-  section.section--page.section--page-about
+  section.section--page
   div.section--page-content
-  p.section--page-description {
+  :where(div, p, form).section--page-description {
   line-height: 1.5;
+}
+
+main.main--section-page section.section--page.section--page-hero {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  gap: var(--gap--large);
+  margin-bottom: calc(var(--gap--large) * 2);
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+  }
+
+  & > img.section--page-photo-profile {
+    position: relative;
+    max-width: 300px;
+    height: auto;
+    border: 1px solid var(--color-border--tertiary);
+    box-shadow: 8px 12px 0 0 var(--color-background--light);
+
+    @media (max-width: 768px) {
+      max-width: unset;
+      width: 100%;
+    }
+  }
+}
+
+main.main--section-page
+  section.section--page
+  div.section--page-description
+  ol.section--page-description-list {
+  margin-left: calc(var(--gap--large) * 2);
+  color: var(--color-text--default);
+}
+
+main.main--section-page
+  section.section--page.section--page-skills
+  div.section--page-skills-bar {
+  position: relative;
+  margin-top: var(--gap--small);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap--medium);
+  background-color: var(--color-background--default);
+  border: 1px solid var(--color-border--tertiary);
+  padding: var(--gap--medium);
+  box-shadow: 0px 0px 12px -4px rgba(0, 0, 0, 0.1);
+}
+
+main.main--section-page
+  section.section--page.section--page-skills
+  div.section--page-skills-bar
+  div.section--page-skills-bar-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap--small);
+}
+
+main.main--section-page
+  section.section--page.section--page-skills
+  div.section--page-skills-bar
+  div.section--page-skills-bar-item
+  div.section--page-skills-bar-item-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap--small);
+}
+
+main.main--section-page
+  section.section--page.section--page-skills
+  div.section--page-skills-bar
+  div.section--page-skills-bar-item
+  :where(h1, h2, h3, h4, h5, h6).section--page-skills-bar-item-title {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+main.main--section-page
+  section.section--page.section--page-skills
+  div.section--page-skills-bar
+  div.section--page-skills-bar-item
+  p.section--page-skills-bar-item-value {
+  font-size: 14px;
+  text-align: right;
+}
+
+main.main--section-page
+  section.section--page.section--page-skills
+  div.section--page-skills-bar
+  div.section--page-skills-bar-item
+  div.section--page-skills-bar-item-bar {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  height: 8px;
+  width: 100%;
+  border: 1px solid var(--color-border--primary);
+
+  &.animate
+    :where(
+      .section--page-skills-bar-item-bar-empty,
+      .section--page-skills-bar-item-bar-fill
+    ) {
+    transition: width 3s ease, flex-basis 3s ease;
+  }
+
+  & > .section--page-skills-bar-item-bar-empty,
+  & > .section--page-skills-bar-item-bar-fill {
+    height: inherit;
+    width: 0px;
+    transition: width 3s ease, flex-basis 3s ease;
+  }
+
+  & > .section--page-skills-bar-item-bar-empty {
+    background-color: #ffcac7;
+  }
+
+  & > .section--page-skills-bar-item-bar-fill {
+    background-color: #ff594f;
+  }
+}
+
+main.main--section-page
+  section.section--page.section--page-get-in-touch
+  div.section--page-description
+  form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap--large);
+  margin-top: var(--gap--large);
+  color: var(--color-text--default);
+  background-color: var(--color-background--default);
+  border: 1px solid var(--color-border--tertiary);
+  padding: var(--gap--medium);
+  box-shadow: 0px 0px 12px -4px rgba(0, 0, 0, 0.1);
+
+  & > button[type="submit"] {
+    padding: var(--gap--small) var(--gap--medium);
+    cursor: pointer;
+  }
+}
+
+main.main--section-page
+  section.section--page.section--page-get-in-touch
+  div.section--page-description
+  form
+  div.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap--small);
+}
+
+main.main--section-page
+  section.section--page.section--page-get-in-touch
+  div.section--page-description
+  form
+  div.form-group
+  label
+  span.required {
+  color: var(--color-text--primary);
+}
+
+main.main--section-page
+  section.section--page.section--page-get-in-touch
+  div.section--page-description
+  form
+  div.form-group
+  :where(input, textarea) {
+  padding: var(--gap--small);
+  border: 1px solid var(--color-border--default);
+  color: var(--color-text--default);
+  background-color: var(--color-background--default);
+  box-shadow: 0px 0px 12px -4px rgba(0, 0, 0, 0.1);
+}
+
+main.main--section-page
+  section.section--page.section--page-get-in-touch
+  div.section--page-description
+  form
+  div.form-group
+  :where(input, textarea):focus {
+  border-color: var(--color-border--primary);
+}
+
+footer.footer--section-page {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  padding: var(--gap--medium);
+  background-color: var(--color-background--default);
+  margin-top: var(--gap--large);
+  text-align: center;
+  color: var(--color-text--default);
+
+  & > p.footer--section-page-copyright {
+    font-size: 14px;
+  }
 }

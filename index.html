@@ -74,18 +74,44 @@
         aria-label="Toggle navigation"
         aria-controls="navbar--main-menu-content"
       >
-        <span
-          class="navbar--section-page-toggle-icon"
-          aria-expanded="false"
-        ></span>
-        <span
-          class="navbar--section-page-toggle-icon"
-          aria-expanded="false"
-        ></span>
-        <span
-          class="navbar--section-page-toggle-icon"
-          aria-expanded="false"
-        ></span>
+        <input
+          type="checkbox"
+          class="navbar--section-page-toggle-checkbox"
+          id="navbar--section-page-toggle-checkbox"
+        />
+        <label
+          for="navbar--section-page-toggle-checkbox"
+          class="label"
+        >
+          <svg
+            viewBox="0 0 65 65"
+            height="60"
+            width="60"
+          >
+            <rect
+              x="7"
+              y="7"
+              width="50"
+              height="50"
+              stroke="var(--color-border--default)"
+              stroke-width="2"
+              fill="none"
+            />
+            <g
+              transform="translate(-23,-967.36216)"
+              id="navbar--section-page-toggle-svg-layer1"
+            >
+              <path
+                id="navbar--section-page-toggle-svg-path4146"
+                d="m 55,978 c -73,19 46,71 15,2 C 60,959 13,966 30,1007 c 12,30 61,13 46,-23"
+                fill="none"
+                stroke="var(--color-border--primary)"
+                stroke-width="1"
+                class="navbar--section-page-toggle-svg-path1"
+              />
+            </g>
+          </svg>
+        </label>
       </div>
 
       <div
@@ -97,37 +123,37 @@
         <ul class="navbar--section-page-list">
           <li class="navbar--section-page-item">
             <a
-              href="/"
+              href="#section--page-title"
               class="navbar--section-page-link"
               >Home</a
             >
           </li>
           <li class="navbar--section-page-item">
             <a
-              href="/"
+              href="#section--page-about"
               class="navbar--section-page-link"
-              >Skills</a
+              >Tentang</a
             >
           </li>
           <li class="navbar--section-page-item">
             <a
-              href="/"
+              href="#section--page-contact"
+              class="navbar--section-page-link"
+              >Kontak</a
+            >
+          </li>
+          <li class="navbar--section-page-item">
+            <a
+              href="#section--page-skills"
+              class="navbar--section-page-link"
+              >Keahlian</a
+            >
+          </li>
+          <li class="navbar--section-page-item">
+            <a
+              href="#section--page-projects"
               class="navbar--section-page-link"
               >Projects</a
-            >
-          </li>
-          <li class="navbar--section-page-item">
-            <a
-              href="/about"
-              class="navbar--section-page-link"
-              >About</a
-            >
-          </li>
-          <li class="navbar--section-page-item">
-            <a
-              href="/contact"
-              class="navbar--section-page-link"
-              >Contact</a
             >
           </li>
         </ul>
@@ -140,7 +166,7 @@
       role="banner"
       aria-label="Banner introduction"
     >
-      <p>Hai everyone, let me introduce myself...</p>
+      <p>Hai semuanya, perkenalkan saya...</p>
     </div>
 
     <main
@@ -153,149 +179,400 @@
         class="section--page section--page-hero title"
         id="section--page-title"
       >
+        <img
+          class="section--page-photo-profile"
+          src="assets/images/Zaid Izzah Nurbaain CROPPED logo.png"
+          alt="Zaid Izzah Nurbaain"
+        />
         <div class="section--page-content">
           <h1 class="section--page-title">Zaid Izzah Nurbaain</h1>
-          <p class="section--page-description">
-            Web Developer | Backend Developer | Frontend Developer | Pixel Art
-            Designer | UI/UX Designer
-          </p>
+          <div class="section--page-description">
+            <p>
+              Web Developer | Dekstop Application Developer | Backend Developer
+              | Frontend Developer | Pixel Art Designer | UI/UX Designer
+            </p>
+            <p>
+              <a
+                href="/assets/src/cv-zaid-izzah-nurbaain.pdf"
+                target="_blank"
+                >Download CV</a
+              >
+            </p>
+          </div>
         </div>
       </section>
 
-      <section class="section--page section--page-about">
+      <section
+        class="section--page section--page-about"
+        id="section--page-about"
+      >
         <div class="section--page-content">
-          <h2 class="section--page-title">About</h2>
-          <p class="section--page-description">
-            I'm a web developer, backend developer, and frontend developer. I
-            have a bachelor's degree in computer science and a master's degree
-            in computer science. I have experience in web development, backend
-            development, and frontend development. I have experience in
-            programming languages such as PHP, HTML, CSS, Java, Visual Basic
-            (for Windows), and JavaScript. I have experience in frameworks such
-            as Laravel, Codeigniter, Visual FoxPro 9.0, Bootstrap, Tailwind CSS,
-            and JQuery. I have experience in databases such as MySQL and
-            PostgreSQL. I have experience in version control systems such as Git
-            and GitHub. I have experience in software development tools such as
-            Visual Studio Code, IntelliJ IDEA, and Visual FoxPro IDE. I have
-            experience in web development tools such as XAMPP and WAMP. And I
-            have experience in design tools such as Figma and pixel art software
-            such as GIMP, Aserprite, Piskel.
-          </p>
-        </div>
-      </section>
-
-      <section class="section--page section--page-contact">
-        <div class="section--page-content">
-          <h2 class="section--page-title">Contact</h2>
-          <p class="section--page-description">
-            You can contact me through the following channels:
-          </p>
-          <ul class="section--page-list">
-            <li class="section--page-item">
+          <h2 class="section--page-title">Tentang saya</h2>
+          <div class="section--page-description">
+            <p>
+              Saya adalah seorang yang ingin belajar lebih mendalam tentang
               <a
-                href="https://www.linkedin.com/in/zaidizzah"
-                class="section--page-link"
-                >LinkedIn</a
-              >
-            </li>
-            <li class="section--page-item">
+                href="https://en.wikipedia.org/wiki/Web_developer"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Web Developer</a
+              >,
               <a
-                href="https://github.com/zaidizzah"
-                class="section--page-link"
-                >GitHub</a
+                href="https://en.wikipedia.org/wiki/Desktop_application_developer"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Dekstop Application Developer</a
+              >,
+              <a
+                href="https://en.wikipedia.org/wiki/Backend_developer"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Backend Developer</a
+              >,
+              <a
+                href="https://en.wikipedia.org/wiki/Frontend_developer"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Frontend Developer</a
+              >,
+              <a
+                href="https://en.wikipedia.org/wiki/Pixel_art"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Pixel Art Designer</a
+              >, dan
+              <a
+                href="https://en.wikipedia.org/wiki/User_interface_design"
+                target="_blank"
+                rel="noopener noreferrer"
+                >UI/UX Designer</a
+              >. Saya memiliki pengalaman 6 di bidang ini sekitar 4 tahun
+              (teruntuk Web Developer, Dekstop Application Developer, Backend
+              Developer, dan Frontend Developer) mulai dari lulusan
+              <a
+                href="https://smkn2kra.sch.id/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >SMK Negeri 2 Karanganyar</a
               >
-            </li>
-            <li class="section--page-item">
+              dengan jurusan dibidang
+              <a
+                href="https://en.wikipedia.org/wiki/Computer_engineering"
+                target="_blank"
+                rel="noopener noreferrer"
+                >rekayasa perangkat lunak dan gim</a
+              >
+              sampai dengan sekarang ini.
+            </p>
+            <br />
+            <p>
+              Sejauh ini saya telah mengerjakan banyak tugas maupun proyek dari
+              sewaktu masih di SMK (sekolah), tugas ataupun proyek pribadi, dan
+              sedikit tugas tanggung jawab yang diberikan oleh beberapa
+              perusahaan. Dikala waktu luang selain belajar 6 hal diatas saya
+              juga belajar mengenai bidang/hal lain, mencangkup:
+            </p>
+            <ol
+              start="1"
+              class="section--page-description-list"
+            >
+              <li class="section--page-description-list-item">Bertani</li>
+              <li class="section--page-description-list-item">Berkebun</li>
+              <li class="section--page-description-list-item">
+                Membuat karya seni Pixel Art
+              </li>
+              <li class="section--page-description-list-item">
+                Suplemen dan kebutuhan gizi sehari-hari
+              </li>
+              <li class="section--page-description-list-item">
+                Dan pengelolaan sampah terhadap lingkungan rumah tempat tinggal
+              </li>
+            </ol>
+            <br />
+            <p>
+              Saya suka terhadap kegiatan yang berkaitan dengan teknologi, suatu
+              tantangan baru, dan kolaborasi dengan orang lain maupun project
+              <a
+                href="https://en.wikipedia.org/wiki/Open_source"
+                target="_blank"
+                rel="noopener noreferrer"
+                >open source</a
+              >. Saya akan sangat senang membantu teman-teman yang membutuhkan
+              bantuan ataupun pemahaman terkait bidang-bidang yang saya tekuni
+              diatas apabila berkenan saya membantu. Saya akan sangat
+              berterimakasih banyak pada teman-teman apabila berkenan mengundang
+              saya untuk bergabung dalam project-project maupun forum-forum
+              diskusi.
+            </p>
+            <br />
+            <p>
+              Saya terbuka bagi teman-teman yang ingin berkonsultasi atau
+              sekedar mengenal lebih dalam siapa saya sebagai seorang yang
+              berkecimpung dalam dunia teknologi terkhusunya di bidang Web
+              Developer dan 5 lainnya. Teman-teman bisa hubungi saya melalui
+              pesan
+              <a
+                href="https://wa.me/6288806089256?text=Hai%20Zaid,%20salam%20kenal%20dariku%20bolehkah%20saya%20bertanya%20mengenai%20suatu%20hal?"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Whatsapp</a
+              >, atau melalui sosial media seperti di
               <a
                 href="https://www.instagram.com/zaidizzah/"
-                class="section--page-link"
+                target="_blank"
+                rel="noopener noreferrer"
                 >Instagram</a
-              >
-            </li>
-          </ul>
+              >, atau terhubung melalui
+              <a href="mailto:nailaaqila31@gmail.com">Email</a>, atau bisa
+              langsung terhubung melalui
+              <a href="https://linkedin.com/in/zaidizzah">Linkedin</a>, ataupun
+              juga bisa melalui form yang telah saya
+              <a href="#contact">sediakan ini</a>.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section class="section--page section--page-skills">
+      <section
+        class="section--page section--page-contact"
+        id="section--page-contact"
+      >
         <div class="section--page-content">
-          <h2 class="section--page-title">Skills</h2>
-          <div class="section--page-description chart">
-            <div class="chart--section-page">
-              <h3 class="chart--section-page-title">HTML</h3>
-              <div class="chart--section-page-bar"></div>
+          <h2 class="section--page-title">Hubungi saya</h2>
+          <div class="section--page-description">
+            <p>
+              Kamu bisa menghubungi saya melalui beberapa channel di bawah ini:
+            </p>
+            <ol
+              class="section--page-description-list"
+              start="1"
+            >
+              <li class="section--page-description-list-item">
+                <a
+                  href="https://wa.me/6288806089256?text=Hai%20Zaid,%20salam%20kenal%20dariku%20bolehkah%20saya%20bertanya%20mengenai%20suatu%20hal?"
+                  class="section--page-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Whatsapp</a
+                >
+              </li>
+              <li class="section--page-description-list-item">
+                <a
+                  href="https://www.linkedin.com/in/zaidizzah"
+                  class="section--page-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >LinkedIn</a
+                >
+              </li>
+              <li class="section--page-description-list-item">
+                <a
+                  href="https://github.com/Zaidizzah"
+                  class="section--page-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >GitHub</a
+                >
+              </li>
+              <li class="section--page-description-list-item">
+                <a
+                  href="https://www.instagram.com/zaidizzah/"
+                  class="section--page-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Instagram</a
+                >
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section--page section--page-skills"
+        id="section--page-skills"
+      >
+        <div class="section--page-content">
+          <h2 class="section--page-title">Keahlian</h2>
+          <div class="section--page-description">
+            <p>
+              Ini adalah skill yang saya miliki, untuk pengalaman di bidang
+              komputer/IT (Informasi Teknologi) (Pengembangan Web, Pengembangan
+              Backend, Pengembangan Frontend, Pengembangan aplikasi dekstop,
+              Desain UI/UX) sekitar 4 tahun:
+            </p>
+          </div>
+          <div class="section--page-skills-bar">
+            <div class="section--page-skills-bar-item">
+              <div class="section--page-skills-bar-item-header">
+                <h6 class="section--page-skills-bar-item-title">HTML</h6>
+                <p class="section--page-skills-bar-item-value">90%</p>
+              </div>
+              <div class="section--page-skills-bar-item-bar">
+                <div
+                  class="section--page-skills-bar-item-bar-fill"
+                  data-value="90%"
+                ></div>
+                <div
+                  class="section--page-skills-bar-item-bar-empty"
+                  data-value="10%"
+                ></div>
+              </div>
             </div>
-            <div class="chart--section-page">
-              <h3 class="chart--section-page-title">CSS</h3>
-              <div class="chart--section-page-bar"></div>
+            <div class="section--page-skills-bar-item">
+              <div class="section--page-skills-bar-item-header">
+                <h6 class="section--page-skills-bar-item-title">CSS</h6>
+                <p class="section--page-skills-bar-item-value">85%</p>
+              </div>
+              <div class="section--page-skills-bar-item-bar">
+                <div
+                  class="section--page-skills-bar-item-bar-fill"
+                  data-value="85%"
+                ></div>
+                <div
+                  class="section--page-skills-bar-item-bar-empty"
+                  data-value="15%"
+                ></div>
+              </div>
             </div>
-            <div class="chart--section-page">
-              <h3 class="chart--section-page-title">JavaScript</h3>
-              <div class="chart--section-page-bar"></div>
+            <div class="section--page-skills-bar-item">
+              <div class="section--page-skills-bar-item-header">
+                <h6 class="section--page-skills-bar-item-title">JavaScript</h6>
+                <p class="section--page-skills-bar-item-value">80%</p>
+              </div>
+              <div class="section--page-skills-bar-item-bar">
+                <div
+                  class="section--page-skills-bar-item-bar-fill"
+                  data-value="80%"
+                ></div>
+                <div
+                  class="section--page-skills-bar-item-bar-empty"
+                  data-value="20%"
+                ></div>
+              </div>
             </div>
-            <div class="chart--section-page">
-              <h3 class="chart--section-page-title">PHP</h3>
-              <div class="chart--section-page-bar"></div>
+            <div class="section--page-skills-bar-item">
+              <div class="section--page-skills-bar-item-header">
+                <h6 class="section--page-skills-bar-item-title">PHP</h6>
+                <p class="section--page-skills-bar-item-value">77%</p>
+              </div>
+              <div class="section--page-skills-bar-item-bar">
+                <div
+                  class="section--page-skills-bar-item-bar-fill"
+                  data-value="77%"
+                ></div>
+                <div
+                  class="section--page-skills-bar-item-bar-empty"
+                  data-value="23%"
+                ></div>
+              </div>
             </div>
-            <div class="chart--section-page">
-              <h3 class="chart--section-page-title">Visual FoxPro 9.0</h3>
-              <div class="chart--section-page-bar"></div>
+            <div class="section--page-skills-bar-item">
+              <div class="section--page-skills-bar-item-header">
+                <h6 class="section--page-skills-bar-item-title">
+                  Visual FoxPro 9.0
+                </h6>
+                <p class="section--page-skills-bar-item-value">49%</p>
+              </div>
+              <div class="section--page-skills-bar-item-bar">
+                <div
+                  class="section--page-skills-bar-item-bar-fill"
+                  data-value="49%"
+                ></div>
+                <div
+                  class="section--page-skills-bar-item-bar-empty"
+                  data-value="51%"
+                ></div>
+              </div>
             </div>
-            <div class="chart--section-page">
-              <h3 class="chart--section-page-title">Pixel Art</h3>
-              <div class="chart--section-page-bar"></div>
+            <div class="section--page-skills-bar-item">
+              <div class="section--page-skills-bar-item-header">
+                <h6 class="section--page-skills-bar-item-title">Pixel Art</h6>
+                <p class="section--page-skills-bar-item-value">40%</p>
+              </div>
+              <div class="section--page-skills-bar-item-bar">
+                <div
+                  class="section--page-skills-bar-item-bar-fill"
+                  data-value="40%"
+                ></div>
+                <div
+                  class="section--page-skills-bar-item-bar-empty"
+                  data-value="60%"
+                ></div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section--page section--page-projects">
+      <section
+        class="section--page section--page-projects"
+        id="section--page-projects"
+      >
         <div class="section--page-content">
           <h2 class="section--page-title">Projects</h2>
-          <p class="section--page-description">Here are some of my projects:</p>
-          <ul class="section--page-list">
-            <li class="section--page-item">
-              <a
-                href="https://github.com/zaidizzah/Portfolio"
-                class="section--page-link"
-                >Portfolio</a
-              >
-            </li>
-          </ul>
+          <div class="section--page-description">
+            <p>Ini ada beberapa project yang saya telah kerjakan sebelumnya:</p>
+            <ol
+              class="section--page-description-list"
+              start="1"
+            >
+              <li class="section--page-description-list-item">
+                <a
+                  href="https://github.com/zaidizzah/Portfolio"
+                  class="section--page-link"
+                  >Portfolio</a
+                >
+              </li>
+            </ol>
+          </div>
         </div>
       </section>
 
       <section class="section--page section--page-get-in-touch">
         <div class="section--page-content">
-          <h2 class="section--page-title">Get in touch</h2>
-          <form
-            action="#"
-            method="post"
-            class="section--page-description"
-            id="contact-form"
-          >
-            <label for="name">Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              required
-            />
-            <label for="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-            />
-            <label for="message">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              rows="4"
-              required
-            ></textarea>
-            <button type="submit">Send</button>
-          </form>
+          <h2 class="section--page-title">Menghubungi</h2>
+          <div class="section--page-description">
+            <p>
+              Hubungi dan konsultasikan terkait hal yang ingin kamu tanyakan
+              dalam form di bawah ini:
+            </p>
+            <form
+              action="#"
+              method="post"
+            >
+              <div class="form-group">
+                <label for="name">Name<span class="required">*</span></label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="email">Email<span class="required">*</span></label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="message"
+                  >Message<span class="required">*</span></label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit">Send</button>
+            </form>
+          </div>
         </div>
       </section>
     </main>
