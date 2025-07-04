@@ -53,4 +53,74 @@ document.addEventListener("DOMContentLoaded", function () {
   skillBarElements.forEach((element) => {
     skillBarObservers.observe(element);
   });
+
+  // Tooltips accessibility
+  const tooltipTriggerElements = document.querySelectorAll(
+    '[data-tooltip="true"]'
+  );
+  if (tooltipTriggerElements) {
+    tooltipTriggerElements.forEach((element, index) => {
+      // set attribute aria-describedby
+      element.setAttribute(
+        "aria-describedby",
+        `tooltip--section-page-${index}`
+      );
+
+      element.addEventListener("mouseover", function () {
+        const existingTooltip = document.getElementById(
+          `tooltip--section-page-${index}`
+        );
+        // Delete existing tooltip
+        if (existingTooltip) {
+          existingTooltip.parentNode.removeChild(existingTooltip);
+        }
+
+        const tooltipElement = document.createElement("div");
+        tooltipElement.classList.add("tooltip--section-page");
+        tooltipElement.role = "tooltip";
+        tooltipElement.tabIndex = "-1";
+        tooltipElement.id = `tooltip--section-page-${index}`;
+        tooltipElement.ariaExpanded = "true";
+        tooltipElement.setAttribute("aria-assertive", "polite");
+
+        const tooltipElementContent = document.createElement("p");
+        tooltipElementContent.textContent = element.dataset.tooltipTitle;
+        tooltipElementContent.classList.add("tooltip--section-page-content");
+
+        // Configure tooltip position
+        const tooltipElementPosition = element.getBoundingClientRect();
+        tooltipElement.style.position = "fixed";
+        tooltipElement.style.left = `${tooltipElementPosition.left}px`;
+        tooltipElement.style.top = `${
+          tooltipElementPosition.top + tooltipElementPosition.height + 4
+        }px`;
+
+        tooltipElement.appendChild(tooltipElementContent);
+        document.body?.appendChild(tooltipElement);
+      });
+
+      element.addEventListener("mouseout", function (event) {
+        const tooltipElement = document.getElementById(
+          `tooltip--section-page-${index}`
+        );
+        if (tooltipElement) {
+          tooltipElement.style.opacity = "0";
+
+          setTimeout(function () {
+            if (tooltipElement.parentNode) {
+              tooltipElement.parentNode.removeChild(tooltipElement);
+            }
+          }, 300);
+        }
+      });
+
+      element.addEventListener("focus", function () {
+        this.dispatchEvent("mouseover", { bubbles: true, cancelable: true });
+      });
+
+      element.addEventListener("blur", function () {
+        this.dispatchEvent("mouseout", { bubbles: true, cancelable: true });
+      });
+    });
+  }
 });

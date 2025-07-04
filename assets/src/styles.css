@@ -79,6 +79,22 @@ body {
   padding-bottom: calc(51.3px + 1px);
 }
 
+.tooltip--section-page {
+  max-width: 350px;
+  height: auto;
+  padding: 4px 8px;
+  border: 1px solid var(--color-background--dark);
+  background-color: var(--color-background--light);
+  overflow: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 5;
+
+  & > p.tooltip--section-page-content {
+    font-size: 14px !important;
+    text-align: center;
+  }
+}
+
 nav.navbar--section-page {
   position: fixed;
   top: 0;
@@ -333,6 +349,13 @@ main.main--section-page
   color: var(--color-text--default);
 }
 
+/* main.main--section-page
+  section.section--page-about
+  div.section--page-description
+  p:not(:first-child) {
+  text-indent: 1rem;
+} */
+
 main.main--section-page
   section.section--page.section--page-skills
   div.section--page-skills-bar {
@@ -484,6 +507,93 @@ main.main--section-page
   div.form-group
   :where(input, textarea):focus {
   border-color: var(--color-border--primary);
+}
+
+main.main--section-page
+  section.section--page.section--page-projects
+  div.section--page-description-list {
+  position: relative;
+  margin-top: var(--gap--large);
+  margin-bottom: var(--gap--large);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--gap--small);
+}
+
+main.main--section-page
+  section.section--page.section--page-projects
+  div.section--page-description-list
+  a.section--page-description-list-item {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  gap: var(--gap--small);
+  align-items: center;
+  padding: var(--gap--small) var(--gap--small) var(--gap--small) 0;
+  border: 2px solid;
+  box-shadow: 0px 0px 12px -4px rgba(0, 0, 0, 0.1);
+
+  /* Unset pseucode ::before */
+  &::before {
+    content: unset;
+  }
+
+  /* Red dominanc */
+  &:first-child {
+    background-color: var(--color-background--secondary);
+    border-color: var(--color-border--primary);
+  }
+
+  /* Blue dominanc */
+  &:nth-child(2) {
+    background-color: #54aeff66;
+    border-color: #54aeff;
+  }
+
+  /* Yellow dominanc */
+  &:nth-child(3) {
+    background-color: #f1c40f66;
+    border-color: #f1c40f;
+  }
+
+  /* Green dominanc */
+  &:nth-child(4) {
+    background-color: #2ecc7066;
+    border-color: #2ecc70;
+  }
+
+  /* Orange dominanc */
+  &:nth-child(5) {
+    background-color: #e67d2267;
+    border-color: #e67e22;
+  }
+
+  /* Purple dominanc */
+  &:nth-child(6) {
+    background-color: #9b59b966;
+    border-color: #9b59b9;
+  }
+
+  /* Pink dominanc */
+  &:nth-child(7) {
+    background-color: #ff6b6b66;
+    border-color: #ff6b6b;
+  }
+
+  /* maroon dominanc */
+  &:nth-child(8) {
+    background-color: #c0392b66;
+    border-color: #c0392b;
+  }
+
+  /* salmon dominanc */
+  &:nth-child(9) {
+    background-color: #e74c3c66;
+    border-color: #e74c3c;
+  }
 }
 
 footer.footer--section-page {
