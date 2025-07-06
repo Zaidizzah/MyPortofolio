@@ -121,13 +121,21 @@
       <div
         class="navbar--section-page-content"
         id="navbar--main-menu-content"
+        role="menu"
         aria-labelledby="navbar--main-menu-title"
         aria-expanded="false"
       >
-        <ul class="navbar--section-page-list">
-          <li class="navbar--section-page-item">
+        <ul
+          class="navbar--section-page-list"
+          role="list"
+        >
+          <li
+            class="navbar--section-page-item"
+            role="listitem"
+          >
             <a
               href="#section--page-title"
+              role="button"
               class="navbar--section-page-link"
               aria-current="page"
               data-tooltip="true"
@@ -135,36 +143,52 @@
               >Home</a
             >
           </li>
-          <li class="navbar--section-page-item">
+          <li
+            class="navbar--section-page-item"
+            role="listitem"
+          >
             <a
               href="#section--page-about"
+              role="button"
               class="navbar--section-page-link"
               data-tooltip="true"
               data-tooltip-title="Permalink About section"
               >Tentang</a
             >
           </li>
-          <li class="navbar--section-page-item">
+          <li
+            class="navbar--section-page-item"
+            role="listitem"
+          >
             <a
               href="#section--page-contact"
+              role="button"
               class="navbar--section-page-link"
               data-tooltip="true"
               data-tooltip-title="Permalink Contact section"
               >Kontak</a
             >
           </li>
-          <li class="navbar--section-page-item">
+          <li
+            class="navbar--section-page-item"
+            role="listitem"
+          >
             <a
               href="#section--page-skills"
+              role="button"
               class="navbar--section-page-link"
               data-tooltip="true"
               data-tooltip-title="Permalink Skills section"
               >Keahlian</a
             >
           </li>
-          <li class="navbar--section-page-item">
+          <li
+            class="navbar--section-page-item"
+            role="listitem"
+          >
             <a
               href="#section--page-projects"
+              role="button"
               class="navbar--section-page-link"
               data-tooltip="true"
               data-tooltip-title="Permalink Projects section"
@@ -193,6 +217,9 @@
       <section
         class="section--page section--page-hero title"
         id="section--page-title"
+        role="region"
+        aria-labelledby="section--page-hero--title"
+        aria-describedby="section--page-hero--description"
       >
         <img
           class="section--page-photo-profile"
@@ -205,8 +232,16 @@
           alt="Zaid Izzah Nurbaain"
         />
         <div class="section--page-content">
-          <h1 class="section--page-title">Zaid Izzah Nurbaain</h1>
-          <div class="section--page-description">
+          <h1
+            class="section--page-title"
+            id="section--page-hero--title"
+          >
+            Zaid Izzah Nurbaain
+          </h1>
+          <div
+            class="section--page-description"
+            id="section--page-hero--description"
+          >
             <p>
               Web Developer | Dekstop Application Developer | Backend Developer
               | Frontend Developer | Pixel Art Designer | UI/UX Designer
@@ -214,6 +249,7 @@
             <p>
               <a
                 href="/assets/src/cv-zaid-izzah-nurbaain.pdf"
+                role="button"
                 target="_blank"
                 data-tooltip="true"
                 data-tooltip-title="Unduh CV saya"
@@ -227,14 +263,26 @@
       <section
         class="section--page section--page-about"
         id="section--page-about"
+        role="region"
+        aria-labelledby="section--page-about--title"
+        aria-describedby="section--page-about--description"
       >
         <div class="section--page-content">
-          <h2 class="section--page-title">Tentang saya</h2>
-          <div class="section--page-description">
+          <h2
+            class="section--page-title"
+            id="section--page-about--title"
+          >
+            Tentang saya
+          </h2>
+          <div
+            class="section--page-description"
+            id="section--page-about--description"
+          >
             <p>
-              Saya adalah seorang yang ingin belajar lebih mendalam tentang
+              Saya adalah seorang yang ingin belajar lebih mendalam mengenai
               <a
                 href="https://en.wikipedia.org/wiki/Web_developer"
+                role="button"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-tooltip="true"
@@ -243,6 +291,7 @@
               >,
               <a
                 href="https://en.wikipedia.org/wiki/Desktop_application_developer"
+                role="button"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-tooltip="true"
@@ -251,6 +300,7 @@
               >,
               <a
                 href="https://en.wikipedia.org/wiki/Backend_developer"
+                role="button"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-tooltip="true"
@@ -259,6 +309,7 @@
               >,
               <a
                 href="https://en.wikipedia.org/wiki/Frontend_developer"
+                role="button"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-tooltip="true"
@@ -267,6 +318,7 @@
               >,
               <a
                 href="https://en.wikipedia.org/wiki/Pixel_art"
+                role="button"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-tooltip="true"
@@ -275,25 +327,28 @@
               >, dan
               <a
                 href="https://en.wikipedia.org/wiki/User_interface_design"
+                role="button"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-tooltip="true"
                 data-tooltip-title="Permalink UI/UX Designer Wikipedia"
                 >UI/UX Designer</a
-              >. Saya memiliki pengalaman 6 di bidang ini sekitar 4 tahun
+              >. Saya memiliki pengalaman di 6 bidang ini sekitar 4 tahun
               (teruntuk Web Developer, Dekstop Application Developer, Backend
               Developer, dan Frontend Developer) mulai dari lulusan
               <a
                 href="https://smkn2kra.sch.id/"
+                role="button"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-tooltip="true"
                 data-tooltip-title="Permalink SMK Negeri 2 Karanganyar school website"
                 >SMK Negeri 2 Karanganyar</a
               >
-              dengan jurusan dibidang
+              dengan jurusan
               <a
                 href="https://en.wikipedia.org/wiki/Computer_engineering"
+                role="button"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-tooltip="true"
@@ -313,30 +368,71 @@
             <ol
               start="1"
               class="section--page-description-list"
+              role="list"
             >
-              <li class="section--page-description-list-item">Bertani</li>
-              <li class="section--page-description-list-item">Berkebun</li>
-              <li class="section--page-description-list-item">
+              <li
+                class="section--page-description-list-item"
+                role="listitem"
+              >
+                Bertani
+              </li>
+              <li
+                class="section--page-description-list-item"
+                role="listitem"
+              >
+                Berkebun
+              </li>
+              <li
+                class="section--page-description-list-item"
+                role="listitem"
+              >
                 Membuat karya seni Pixel Art
               </li>
-              <li class="section--page-description-list-item">
+              <li
+                class="section--page-description-list-item"
+                role="listitem"
+              >
                 Kebutuhan gizi sehari-hari bagi tubuh
               </li>
-              <li class="section--page-description-list-item">
+              <li
+                class="section--page-description-list-item"
+                role="listitem"
+              >
                 Pengelolaan sampah terhadap lingkungan rumah tempat tinggal
               </li>
-              <li class="section--page-description-list-item">Photography</li>
-              <li class="section--page-description-list-item">
+              <li
+                class="section--page-description-list-item"
+                role="listitem"
+              >
+                Photography
+              </li>
+              <li
+                class="section--page-description-list-item"
+                role="listitem"
+              >
+                Menjahit
+              </li>
+              <li
+                class="section--page-description-list-item"
+                role="listitem"
+              >
+                Merajut
+              </li>
+              <li
+                class="section--page-description-list-item"
+                role="listitem"
+              >
                 Dan ilmu mengenai perencanaan tata ruang
               </li>
             </ol>
             <br />
             <p>
-              Saya akakn sangat suka terhadap kegiatan yang berkaitan dengan
+              Saya akan sangat suka terhadap kegiatan yang berkaitan dengan
               teknologi atau terkait keindahan ruang dan tata ruang, suatu
               tantangan baru, dan kolaborasi dengan orang lain maupun project
               <a
                 href="https://en.wikipedia.org/wiki/Open_source"
+                role="button"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-tooltip="true"
@@ -344,20 +440,20 @@
                 >open source</a
               >. Saya akan sangat senang membantu teman-teman yang membutuhkan
               bantuan ataupun pemahaman terkait bidang-bidang yang saya tekuni
-              diatas apabila berkenan saya membantu. Saya akan sangat
-              berterimakasih banyak pada teman-teman apabila berkenan mengundang
-              saya untuk bergabung dalam project-project maupun forum-forum
-              diskusi.
+              diatas. Saya akan sangat berterimakasih banyak pada teman-teman
+              apabila berkenan mengundang saya untuk bergabung dalam
+              project-project maupun forum-forum diskusi.
             </p>
             <br />
             <p>
               Saya terbuka bagi teman-teman yang ingin berkonsultasi atau
               sekedar mengenal lebih dalam siapa saya sebagai seorang yang
               berkecimpung dalam dunia teknologi terkhusunya di bidang Web
-              Developer dan 5 lainnya. Teman-teman bisa hubungi saya melalui
-              pesan
+              Developer dan juga 5 hal lainnya. Teman-teman bisa hubungi saya
+              melalui pesan
               <a
                 href="https://wa.me/6288806089256?text=Hai%20Zaid,%20salam%20kenal%20dariku%20bolehkah%20saya%20bertanya%20mengenai%20suatu%20hal?"
+                role="button"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-tooltip="true"
@@ -366,6 +462,7 @@
               >, atau melalui sosial media seperti di
               <a
                 href="https://www.instagram.com/zaidizzah/"
+                role="button"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-tooltip="true"
@@ -380,12 +477,14 @@
               >, atau bisa langsung terhubung melalui
               <a
                 href="https://linkedin.com/in/zaidizzah"
+                role="button"
                 data-tooltip="true"
                 data-tooltip-title="Permalink Linkedin"
                 >Linkedin</a
               >, ataupun juga bisa melalui form yang telah saya
               <a
                 href="#section--page-get-in-touch-form"
+                role="button"
                 data-tooltip="true"
                 data-tooltip-title="Permalink Contact section"
                 >sediakan ini</a
@@ -398,20 +497,36 @@
       <section
         class="section--page section--page-contact"
         id="section--page-contact"
+        role="region"
+        aria-labelledby="section--page-contact-title"
+        aria-describedby="section--page-contact-description"
       >
         <div class="section--page-content">
-          <h2 class="section--page-title">Hubungi saya</h2>
-          <div class="section--page-description">
+          <h2
+            class="section--page-title"
+            id="section--page-contact-title"
+          >
+            Hubungi saya
+          </h2>
+          <div
+            class="section--page-description"
+            id="section--page-contact-description"
+          >
             <p>
               Kamu bisa menghubungi saya melalui beberapa channel di bawah ini:
             </p>
             <ol
               class="section--page-description-list"
               start="1"
+              role="list"
             >
-              <li class="section--page-description-list-item">
+              <li
+                class="section--page-description-list-item"
+                role="listitem"
+              >
                 <a
                   href="https://wa.me/6288806089256?text=Hai%20Zaid,%20salam%20kenal%20dariku%20bolehkah%20saya%20bertanya%20mengenai%20suatu%20hal?"
+                  role="button"
                   class="section--page-link"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -420,9 +535,13 @@
                   >Whatsapp</a
                 >
               </li>
-              <li class="section--page-description-list-item">
+              <li
+                class="section--page-description-list-item"
+                role="listitem"
+              >
                 <a
                   href="https://www.linkedin.com/in/zaidizzah"
+                  role="button"
                   class="section--page-link"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -431,9 +550,13 @@
                   >LinkedIn</a
                 >
               </li>
-              <li class="section--page-description-list-item">
+              <li
+                class="section--page-description-list-item"
+                role="listitem"
+              >
                 <a
                   href="https://github.com/Zaidizzah"
+                  role="button"
                   class="section--page-link"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -442,9 +565,13 @@
                   >GitHub</a
                 >
               </li>
-              <li class="section--page-description-list-item">
+              <li
+                class="section--page-description-list-item"
+                role="listitem"
+              >
                 <a
                   href="https://www.instagram.com/zaidizzah/"
+                  role="button"
                   class="section--page-link"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -461,20 +588,35 @@
       <section
         class="section--page section--page-skills"
         id="section--page-skills"
+        role="region"
+        aria-labelledby="section--page-skills-title"
+        aria-describedby="section--page-skills-description"
       >
         <div class="section--page-content">
-          <h2 class="section--page-title">Keahlian</h2>
-          <div class="section--page-description">
+          <h2
+            class="section--page-title"
+            id="section--page-skills-title"
+          >
+            Keahlian
+          </h2>
+          <div
+            class="section--page-description"
+            id="section--page-skills-description"
+          >
             <p>
               Ini adalah skill yang saya miliki, untuk pengalaman di bidang
               komputer/IT (Informasi Teknologi) (Pengembangan Web, Pengembangan
               Backend, Pengembangan Frontend, Pengembangan aplikasi dekstop,
-              Desain UI/UX) sekitar 4 tahun:
+              Desain UI/UX, dan Pixel Art Design) sekitar 4 tahun:
             </p>
           </div>
-          <div class="section--page-skills-bar">
+          <div
+            class="section--page-skills-bar"
+            role="list"
+          >
             <div
               class="section--page-skills-bar-item"
+              role="listitem"
               title="Keahlian HTML direntang 90/100"
             >
               <div class="section--page-skills-bar-item-header">
@@ -494,6 +636,7 @@
             </div>
             <div
               class="section--page-skills-bar-item"
+              role="listitem"
               title="Keahlian CSS direntang 85/100"
             >
               <div class="section--page-skills-bar-item-header">
@@ -513,6 +656,7 @@
             </div>
             <div
               class="section--page-skills-bar-item"
+              role="listitem"
               title="Keahlian JavaScript direntang 80/100"
             >
               <div class="section--page-skills-bar-item-header">
@@ -532,6 +676,7 @@
             </div>
             <div
               class="section--page-skills-bar-item"
+              role="listitem"
               title="Keahlian PHP direntang 77/100"
             >
               <div class="section--page-skills-bar-item-header">
@@ -551,6 +696,7 @@
             </div>
             <div
               class="section--page-skills-bar-item"
+              role="listitem"
               title="Keahlian Visual FoxPro direntang 49/100"
             >
               <div class="section--page-skills-bar-item-header">
@@ -572,6 +718,7 @@
             </div>
             <div
               class="section--page-skills-bar-item"
+              role="listitem"
               title="Keahlian Pixel Art direntang 40/100"
             >
               <div class="section--page-skills-bar-item-header">
@@ -591,6 +738,7 @@
             </div>
             <div
               class="section--page-skills-bar-item"
+              role="listitem"
               title="Keahlian Photography direntang 40/100"
             >
               <div class="section--page-skills-bar-item-header">
@@ -615,18 +763,36 @@
       <section
         class="section--page section--page-projects"
         id="section--page-projects"
+        role="region"
+        aria-labelledby="section--page-projects-title"
+        aria-describedby="section--page-projects-description"
       >
         <div class="section--page-content">
-          <h2 class="section--page-title">Projects</h2>
-          <div class="section--page-description">
+          <h2
+            class="section--page-title"
+            id="section--page-projects-title"
+          >
+            Projects
+          </h2>
+          <div
+            class="section--page-description"
+            id="section--page-projects-description"
+          >
             <p>Ini ada beberapa project yang saya telah kerjakan sebelumnya:</p>
-            <div class="section--page-description-list">
+            <div
+              class="section--page-description-list"
+              role="list"
+            >
               <div
                 class="section--page-description-list-item"
+                role="listitem"
                 data-tooltip="true"
                 data-tooltip-title="Project 1 - Portofolio, personal website"
               >
-                <div class="section--page-description-list-item-icon">
+                <div
+                  class="section--page-description-list-item-icon"
+                  role="img"
+                >
                   <img
                     src="assets/images/projects/PORTOFOLIO - PROJECT - NOBACGROUND.png"
                     alt="Project 1 - Portofolio"
@@ -644,6 +810,7 @@
                     teman-teman kunjungi.
                     <a
                       href="https://github.com/Zaidizzah/MyPortofolio"
+                      role="button"
                       target="_blank"
                       rel="noopener noreferrer"
                       >Kunjungi</a
@@ -653,10 +820,14 @@
               </div>
               <div
                 class="section--page-description-list-item"
+                role="listitem"
                 data-tooltip="true"
                 data-tooltip-title="Project 2 - MYFORMS, form/quiz builder application website"
               >
-                <div class="section--page-description-list-item-icon">
+                <div
+                  class="section--page-description-list-item-icon"
+                  role="img"
+                >
                   <img
                     src="assets/images/projects/MYFORMS - PROJECT - NOBACGROUND.png"
                     alt="Project 2 - MYFORMS"
@@ -674,6 +845,7 @@
                     mengetahu sistem formulir dan quiz di
                     <a
                       href="https://docs.google.com/forms/"
+                      role="button"
                       data-tooltip="true"
                       data-tooltip-title="Permalink google form"
                       target="_blank"
@@ -682,6 +854,7 @@
                     >.
                     <a
                       href="https://github.com/Zaidizzah/MyPortofolio"
+                      role="button"
                       target="_blank"
                       rel="noopener noreferrer"
                       >Kunjungi</a
@@ -691,10 +864,14 @@
               </div>
               <div
                 class="section--page-description-list-item"
+                role="listitem"
                 data-tooltip="true"
                 data-tooltip-title="Project 3 - MyBlog, blogging application website"
               >
-                <div class="section--page-description-list-item-icon">
+                <div
+                  class="section--page-description-list-item-icon"
+                  role="img"
+                >
                   <img
                     src="assets/images/projects/MyBlog - PROJECT - NOBACGROUND.png"
                     alt="Project 3 - MyBlog"
@@ -703,21 +880,33 @@
                 </div>
                 <div class="section--page-description-list-item-content">
                   <h6 class="section--page-description-list-item-content-title">
-                    Project 3
+                    Project 3 - MyBlog
                   </h6>
                   <p
                     class="section--page-description-list-item-content-description"
                   >
-                    Deskripsi project 3
+                    Project ini adalah project pribadi yang saya peruntukan
+                    dalam belajar framework laravel pertama kali.
+                    <a
+                      href="https://github.com/Zaidizzah/My-Blog"
+                      role="button"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Kunjungi</a
+                    >
                   </p>
                 </div>
               </div>
               <div
                 class="section--page-description-list-item"
+                role="listitem"
                 data-tooltip="true"
                 data-tooltip-title="Project 4 - CV WICITRA ELANG LAWU, company CV website"
               >
-                <div class="section--page-description-list-item-icon">
+                <div
+                  class="section--page-description-list-item-icon"
+                  role="img"
+                >
                   <img
                     src="assets/images/projects/CVWicitraElangLawu - PROJECT - NOBACGROUND.png"
                     alt="Project 4 - CV WICITRA ELANG LAWU"
@@ -726,21 +915,27 @@
                 </div>
                 <div class="section--page-description-list-item-content">
                   <h6 class="section--page-description-list-item-content-title">
-                    Project 4
+                    Project 4 - CV WICITRA ELANG LAWU
                   </h6>
                   <p
                     class="section--page-description-list-item-content-description"
                   >
-                    Deskripsi project 4
+                    Ini adalah project CV digital berbasis website yang saya
+                    kerjaan dalam mengubah CV dalam format file digital kedalam
+                    website yang mudah dalam penyalurannya.
                   </p>
                 </div>
               </div>
               <div
                 class="section--page-description-list-item"
+                role="listitem"
                 data-tooltip="true"
                 data-tooltip-title="Project 5 - QuizQuest Game, quiz game website with interactive UI"
               >
-                <div class="section--page-description-list-item-icon">
+                <div
+                  class="section--page-description-list-item-icon"
+                  role="img"
+                >
                   <img
                     src="assets/images/projects/QuizQuest_Game - PROJECT - NOBACGROUND.png"
                     alt="Project 5 - QuizQuest Game"
@@ -749,21 +944,34 @@
                 </div>
                 <div class="section--page-description-list-item-content">
                   <h6 class="section--page-description-list-item-content-title">
-                    Project 3
+                    Project 5 - QuizQuest Game
                   </h6>
                   <p
                     class="section--page-description-list-item-content-description"
                   >
-                    Deskripsi project 3
+                    Project ini adalah project kelompok yang dikerjakan dalam
+                    rangka lomba karya digital untuk meningkatkan taraf literasi
+                    dan enumerasi nasional.
+                    <a
+                      href="https://github.com/Zaidizzah/QuizQuest"
+                      role="button"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Kunjungi</a
+                    >
                   </p>
                 </div>
               </div>
               <div
                 class="section--page-description-list-item"
+                role="listitem"
                 data-tooltip="true"
                 data-tooltip-title="Project 6 - DIGITALIZATION DOCUMENTS, digitalization documents website with scalable functionality"
               >
-                <div class="section--page-description-list-item-icon">
+                <div
+                  class="section--page-description-list-item-icon"
+                  role="img"
+                >
                   <img
                     src="assets/images/projects/DIGITALIZATION_DOCUMENTS - PROJECT - NOBACGROUND.png"
                     alt="Project 6 - DIGITALIZATION DOCUMENTS"
@@ -772,21 +980,34 @@
                 </div>
                 <div class="section--page-description-list-item-content">
                   <h6 class="section--page-description-list-item-content-title">
-                    Project 4
+                    Project 6 - DIGITALIZATION DOCUMENTS
                   </h6>
                   <p
                     class="section--page-description-list-item-content-description"
                   >
-                    Deskripsi project 4
+                    Project ini adalah project pribadi yang saya kerjaan untuk
+                    pemenuhan kebutuhan dokumentasi digital serta management
+                    dokumen digital secara terstruktur.
+                    <a
+                      href="https://github.com/Zaidizzah/Digitalization-documents"
+                      role="button"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Kunjungi</a
+                    >
                   </p>
                 </div>
               </div>
               <div
                 class="section--page-description-list-item"
+                role="listitem"
                 data-tooltip="true"
                 data-tooltip-title="Project 7 - CMS, Content Management System website with powerfull configuration content"
               >
-                <div class="section--page-description-list-item-icon">
+                <div
+                  class="section--page-description-list-item-icon"
+                  role="img"
+                >
                   <img
                     src="assets/images/projects/CMS - PROJECT - NOBACKGROUND.png"
                     alt="Project 7 - CONTENT MANAGEMENT SYSTEM"
@@ -795,21 +1016,27 @@
                 </div>
                 <div class="section--page-description-list-item-content">
                   <h6 class="section--page-description-list-item-content-title">
-                    Project 4
+                    Project 7 - CMS
                   </h6>
                   <p
                     class="section--page-description-list-item-content-description"
                   >
-                    Deskripsi project 4
+                    Project ini adalah project pribadi yang saya kerjaan untuk
+                    pemenuhan kebutuhan CMS (Content Management System) dengan
+                    fitur yang memudahkan pengelolaan konten website.
                   </p>
                 </div>
               </div>
               <div
                 class="section--page-description-list-item"
+                role="listitem"
                 data-tooltip="true"
                 data-tooltip-title="Project 8 - Pemantau Cuaca, weather monitoring in dekstop application"
               >
-                <div class="section--page-description-list-item-icon">
+                <div
+                  class="section--page-description-list-item-icon"
+                  role="img"
+                >
                   <img
                     src="assets/images/projects/CUACA - PROJECT DEKSTOP - NOBACKGROUND.png"
                     alt="Project 8 - Pemantau Cuaca Dekstop"
@@ -818,21 +1045,47 @@
                 </div>
                 <div class="section--page-description-list-item-content">
                   <h6 class="section--page-description-list-item-content-title">
-                    Project 4
+                    Project 8 - Pemantau Cuaca
                   </h6>
                   <p
                     class="section--page-description-list-item-content-description"
                   >
-                    Deskripsi project 4
+                    Project ini adalah project pribadi yang saya kerjaan untuk
+                    lebih mendalami mengenai teknologi pengembangan aplikasi
+                    dekstop melalui pemantauan cuaca.
+                    <a
+                      href="https://en.en.wikipedia.org/wiki/Flutter_(software)"
+                      role="button"
+                      data-tooltip="true"
+                      data-tooltip-title="Permalink Flutter Wikipedia"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Flutter</a
+                    >
+                    dan
+                    <a
+                      href="https://en.wikipedia.org/wiki/Dart_(programming_language)"
+                      role="button"
+                      data-tooltip="true"
+                      data-tooltip-title="Permalink Dart programming language Wikipedia"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Dart</a
+                    >
+                    bahasa pemrograman.
                   </p>
                 </div>
               </div>
               <div
                 class="section--page-description-list-item"
+                role="listitem"
                 data-tooltip="true"
                 data-tooltip-title="Project 9 - Casir website versi 1"
               >
-                <div class="section--page-description-list-item-icon">
+                <div
+                  class="section--page-description-list-item-icon"
+                  role="img"
+                >
                   <img
                     src="assets/images/projects/Kasir restoran v1 - PROJECT - NOBACKGROUND.png"
                     alt="Project 9 - Kasir website versi 1"
@@ -841,21 +1094,35 @@
                 </div>
                 <div class="section--page-description-list-item-content">
                   <h6 class="section--page-description-list-item-content-title">
-                    Project 4
+                    Project 9 - Kasir website versi 1
                   </h6>
                   <p
                     class="section--page-description-list-item-content-description"
                   >
-                    Deskripsi project 4
+                    Project ini adalah project pribadi yang saya kerjaan sebagai
+                    bekal awal pemrograman website pada saat masih dijenjang
+                    <a
+                      href="https://smkn2kra.sch.id/"
+                      role="button"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-tooltip="true"
+                      data-tooltip-title="Permalink SMK Negeri 2 Karanganyar school website"
+                      >SMK Negeri 2 Karanganyar</a
+                    >.
                   </p>
                 </div>
               </div>
               <div
                 class="section--page-description-list-item"
+                role="listitem"
                 data-tooltip="true"
                 data-tooltip-title="Project 10 - Casir website versi 2"
               >
-                <div class="section--page-description-list-item-icon">
+                <div
+                  class="section--page-description-list-item-icon"
+                  role="img"
+                >
                   <img
                     src="assets/images/projects/Kasir restoran v2 - PROJECT - NOBACKGROUND.png"
                     alt="Project 10 - Kasir website versi 2"
@@ -864,21 +1131,26 @@
                 </div>
                 <div class="section--page-description-list-item-content">
                   <h6 class="section--page-description-list-item-content-title">
-                    Project 4
+                    Project 10 - Kasir website versi 2
                   </h6>
                   <p
                     class="section--page-description-list-item-content-description"
                   >
-                    Deskripsi project 4
+                    Project ini adalah project pribadi yang saya kerjaan sebagai
+                    versi terbaru dari versi 1 sebelumnya.
                   </p>
                 </div>
               </div>
               <div
                 class="section--page-description-list-item"
+                role="listitem"
                 data-tooltip="true"
                 data-tooltip-title="Project 11 - Casir website versi 3"
               >
-                <div class="section--page-description-list-item-icon">
+                <div
+                  class="section--page-description-list-item-icon"
+                  role="img"
+                >
                   <img
                     src="assets/images/projects/Kasir restoran v3 - PROJECT - NOBACKGROUND.png"
                     alt="Project 11 - Kasir website versi 3"
@@ -887,21 +1159,27 @@
                 </div>
                 <div class="section--page-description-list-item-content">
                   <h6 class="section--page-description-list-item-content-title">
-                    Project 4
+                    Project 11 - Kasir website versi 3
                   </h6>
                   <p
                     class="section--page-description-list-item-content-description"
                   >
-                    Deskripsi project 4
+                    Project ini adalah project pribadi yang saya kerjaan sebagai
+                    versi terbaru dari versi 2 sebelumnya serta sebagai versi
+                    akhir dari pengembangan aplikasi kasir berbasis website.
                   </p>
                 </div>
               </div>
               <div
                 class="section--page-description-list-item"
+                role="listitem"
                 data-tooltip="true"
                 data-tooltip-title="Project 12 - MyOwnPlanner website, planner website for personal or business use"
               >
-                <div class="section--page-description-list-item-icon">
+                <div
+                  class="section--page-description-list-item-icon"
+                  role="img"
+                >
                   <img
                     src="assets/images/projects/MYOWNPLANNER - PROJECT - NOBACKGROUND.png"
                     alt="Project 12 - MyOwnPlanner website"
@@ -910,21 +1188,28 @@
                 </div>
                 <div class="section--page-description-list-item-content">
                   <h6 class="section--page-description-list-item-content-title">
-                    Project 4
+                    Project 12 - MyOwnPlanner
                   </h6>
                   <p
                     class="section--page-description-list-item-content-description"
                   >
-                    Deskripsi project 4
+                    Project ini adalah project pribadi yang saya kerjaan sebagai
+                    syarat akhir kenaikan kelas 11 ke 12 sebagai salah satu
+                    tugas untuk membuat website MyOwnPlanner sederhana versi
+                    saya sendiri.
                   </p>
                 </div>
               </div>
               <div
                 class="section--page-description-list-item"
+                role="listitem"
                 data-tooltip="true"
                 data-tooltip-title="Project 13 - Pemutar musik, Playing song, music, audio digital in dekstop application"
               >
-                <div class="section--page-description-list-item-icon">
+                <div
+                  class="section--page-description-list-item-icon"
+                  role="img"
+                >
                   <img
                     src="assets/images/projects/Pemutar musik - PROJECT DEKSTOP - NOBACKGROUND.png"
                     alt="Project 13 - Pemutar musik Dekstop"
@@ -933,28 +1218,47 @@
                 </div>
                 <div class="section--page-description-list-item-content">
                   <h6 class="section--page-description-list-item-content-title">
-                    Project 4
+                    Project 13 - Pemutar musik
                   </h6>
                   <p
                     class="section--page-description-list-item-content-description"
                   >
-                    Deskripsi project 4
+                    Project ini adalah project pribadi yang saya kerjaan untuk
+                    lebih mendalami mengenai teknologi pengembangan aplikasi
+                    dekstop pemutar musik. berbasis
+                    <a
+                      href="https://www.java.com/en/"
+                      role="button"
+                      target="_blank"
+                      >Java</a
+                    >
+                    bahasa
                   </p>
                 </div>
               </div>
             </div>
-            <p>
-              Ini adalah daftar project yang telah saya selesaikan atau sedang
-              saya kerjakan sebelumnya.
-            </p>
           </div>
         </div>
       </section>
 
-      <section class="section--page section--page-get-in-touch">
+      <section
+        class="section--page section--page-get-in-touch"
+        id="section--page-get-in-touch"
+        role="region"
+        aria-labelledby="section--page-get-in-touch-title"
+        aria-describedby="section--page-get-in-touch-description"
+      >
         <div class="section--page-content">
-          <h2 class="section--page-title">Menghubungi</h2>
-          <div class="section--page-description">
+          <h2
+            class="section--page-title"
+            id="section--page-get-in-touch-title"
+          >
+            Menghubungi
+          </h2>
+          <div
+            class="section--page-description"
+            id="section--page-get-in-touch-description"
+          >
             <p>
               Hubungi dan konsultasikan terkait hal yang ingin kamu tanyakan
               dalam form di bawah ini:
@@ -963,29 +1267,34 @@
               action="https://formspree.io/f/movajznr"
               method="post"
               id="section--page-get-in-touch-form"
+              role="form"
             >
               <div class="form-group">
-                <label for="email">Email<span class="required">*</span></label>
+                <label for="get-in-touch-form-email"
+                  >Email<span class="required">*</span></label
+                >
                 <input
                   type="email"
-                  id="email"
+                  id="get-in-touch-form-email"
                   name="email"
                   data-tooltip="true"
                   data-tooltip-title="Please enter your valid email"
                   required
+                  aria-required="true"
                 />
               </div>
               <div class="form-group">
-                <label for="message"
+                <label for="get-in-touch-form-message"
                   >Message<span class="required">*</span></label
                 >
                 <textarea
-                  id="message"
+                  id="get-in-touch-form-message"
                   name="message"
                   data-tooltip="true"
                   data-tooltip-title="Please enter your message and do not share any sensitive information about yourself or others"
                   rows="4"
                   required
+                  aria-required="true"
                 ></textarea>
               </div>
               <button type="submit">Send</button>
@@ -995,8 +1304,15 @@
       </section>
     </main>
 
-    <footer class="footer--section-page">
-      <p class="footer--section-page-copyright">
+    <footer
+      class="footer--section-page"
+      id="footer--section-page"
+      aria-labelledby="footer--section-page-copyright"
+    >
+      <p
+        class="footer--section-page-copyright"
+        id="footer--section-page-copyright"
+      >
         &copy; Zaid Izzah Nurbaain 2025 | All rights reserved.
       </p>
     </footer>
