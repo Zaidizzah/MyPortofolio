@@ -29,6 +29,7 @@
   padding: 0;
   box-sizing: border-box;
   font-size: 18px;
+  line-height: 1.6;
 }
 
 :where(p, span, i, a) {
@@ -40,6 +41,10 @@ a {
   color: var(--color-text--link);
   text-decoration: none;
   transition: color 0.3s ease-in-out;
+}
+
+a:visited {
+  color: #ff7070;
 }
 
 a:not(.navbar--section-page-logo)::before {
@@ -76,7 +81,7 @@ html {
 body {
   font-family: "Poppins", sans-serif;
   padding-top: calc(138.84px + 1px);
-  padding-bottom: calc(51.3px + 1px);
+  padding-bottom: 108px;
 }
 
 .tooltip--section-page {
@@ -227,7 +232,7 @@ main.main--section-page {
   position: relative;
   background-color: var(--color-background--default);
   padding: calc(var(--gap--large) * 2) 32px;
-  border-bottom: 1px solid var(--color-border--default);
+  border-bottom: 6px solid var(--color-border--primary);
   box-shadow: 0 8px 12px 4px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   z-index: 2;
@@ -344,7 +349,7 @@ main.main--section-page section.section--page.section--page-hero {
 main.main--section-page
   section.section--page
   div.section--page-description
-  ol.section--page-description-list {
+  :where(ul, ol).section--page-description-list {
   margin-left: calc(var(--gap--large) * 2);
   color: var(--color-text--default);
 }
@@ -357,6 +362,25 @@ main.main--section-page
 } */
 
 main.main--section-page
+  section.section--page
+  div.section--page-description
+  :where(ul, ol).section--page-description-list
+  li.section--page-description-list-item {
+  padding-left: 8px;
+}
+
+main.main--section-page
+  section.section--page.section--page-education
+  div.section--page-description
+  ol.section--page-description-list
+  li.section--page-description-list-item,
+h4 {
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
+main.main--section-page
   section.section--page.section--page-skills
   div.section--page-skills-bar {
   position: relative;
@@ -367,7 +391,7 @@ main.main--section-page
   background-color: var(--color-background--default);
   border: 1px solid var(--color-border--tertiary);
   padding: var(--gap--medium);
-  box-shadow: 0px 0px 12px -4px rgba(0, 0, 0, 0.1);
+  box-shadow: 8px 12px 0 0 var(--color-background--light);
 }
 
 main.main--section-page
@@ -459,11 +483,21 @@ main.main--section-page
   background-color: var(--color-background--default);
   border: 1px solid var(--color-border--tertiary);
   padding: var(--gap--medium);
-  box-shadow: 0px 0px 12px -4px rgba(0, 0, 0, 0.1);
+  box-shadow: 8px 12px 0 0 var(--color-background--light);
 
   & > button[type="submit"] {
-    padding: var(--gap--small) var(--gap--medium);
+    color: var(--color-text--light);
+    border: 1px solid var(--color-border--dark);
+    background-color: #333;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+    padding: var(--gap--small);
+    width: 100px;
+    transition: background-color 0.3s ease-in-out;
     cursor: pointer;
+  }
+
+  & > button[type="submit"]:hover {
+    background-color: var(--color-background--dark);
   }
 }
 
@@ -497,7 +531,7 @@ main.main--section-page
   border: 1px solid var(--color-border--default);
   color: var(--color-text--default);
   background-color: var(--color-background--default);
-  box-shadow: 0px 0px 12px -4px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 1px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 main.main--section-page
@@ -744,13 +778,11 @@ footer.footer--section-page {
   left: 0;
   width: 100%;
   height: auto;
-  padding: var(--gap--medium);
-  background-color: var(--color-background--default);
-  margin-top: var(--gap--large);
+  padding: calc(var(--gap--large) * 2);
+  background-color: var(--color-background--secondary);
   text-align: center;
-  color: var(--color-text--default);
 
   & > p.footer--section-page-copyright {
-    font-size: 14px;
+    color: #eee;
   }
 }

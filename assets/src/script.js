@@ -113,14 +113,18 @@ document.addEventListener("DOMContentLoaded", function () {
           }, 300);
         }
       });
+    });
+  }
 
-      element.addEventListener("focus", function () {
-        this.dispatchEvent("mouseover", { bubbles: true, cancelable: true });
-      });
-
-      element.addEventListener("blur", function () {
-        this.dispatchEvent("mouseout", { bubbles: true, cancelable: true });
-      });
+  // Adding role "heading" to all element heading with class "...title"
+  const headingElements = document.querySelectorAll(
+    "h1[class$='title'], h2[class$='title'], h3[class$='title'], h4[class$='title'], h5[class$='title'], h6[class$='title']"
+  );
+  if (headingElements) {
+    headingElements.forEach((element) => {
+      if (element.role === undefined || element.role !== "heading") {
+        element.setAttribute("role", "heading");
+      }
     });
   }
 });
