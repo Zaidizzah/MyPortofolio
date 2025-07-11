@@ -29,6 +29,10 @@
     />
 
     <meta
+      property="og:site_name"
+      content="Zaid Izzah Nurbaain"
+    />
+    <meta
       property="og:title"
       content="Portofolio Zaid Izzah Nurbaain - Developer & Desainer"
     />
@@ -75,7 +79,7 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="https://www.zaidizzah.com/assets/src/styles.css"
+      href="assets/src/styles.css"
     />
   </head>
   <body>
@@ -161,7 +165,6 @@
       <div
         class="navbar--section-page-content"
         id="navbar--main-menu-content"
-        role="menu"
         aria-labelledby="navbar--main-menu-title"
         aria-expanded="false"
       >
@@ -173,7 +176,6 @@
             <a
               href="#section--page-title"
               class="navbar--section-page-link"
-              role="menuitem"
               aria-current="page"
               data-tooltip="true"
               data-tooltip-title="Permalink Home section"
@@ -187,7 +189,6 @@
             <a
               href="#section--page-about"
               class="navbar--section-page-link"
-              role="menuitem"
               data-tooltip="true"
               data-tooltip-title="Permalink About section"
               >Tentang</a
@@ -200,7 +201,6 @@
             <a
               href="#section--page-contact"
               class="navbar--section-page-link"
-              role="menuitem"
               data-tooltip="true"
               data-tooltip-title="Permalink Contact section"
               >Kontak</a
@@ -213,7 +213,6 @@
             <a
               href="#section--page-skills"
               class="navbar--section-page-link"
-              role="menuitem"
               data-tooltip="true"
               data-tooltip-title="Permalink Skills section"
               >Keahlian</a
@@ -226,7 +225,6 @@
             <a
               href="#section--page-projects"
               class="navbar--section-page-link"
-              role="menuitem"
               data-tooltip="true"
               data-tooltip-title="Permalink Projects section"
               >Projects</a
@@ -1482,7 +1480,7 @@
             </p>
             <form
               action="https://formspree.io/f/movajznr"
-              method="post"
+              method="POST"
               id="section--page-get-in-touch-form"
               role="form"
             >
@@ -1496,6 +1494,20 @@
                   name="email"
                   data-tooltip="true"
                   data-tooltip-title="Please enter your valid email"
+                  required
+                  aria-required="true"
+                />
+              </div>
+              <div class="form-group">
+                <label for="get-in-touch-form-name"
+                  >Name<span class="required">*</span></label
+                >
+                <input
+                  type="text"
+                  id="get-in-touch-form-name"
+                  name="name"
+                  data-tooltip="true"
+                  data-tooltip-title="Please enter your valid name"
                   required
                   aria-required="true"
                 />
@@ -1527,17 +1539,29 @@
       id="footer--section-page"
       aria-labelledby="footer--section-page-copyright"
     >
-      <p
+      <ul
         class="footer--section-page-copyright"
         id="footer--section-page-copyright"
+        role="list"
       >
-        &copy; 2025 COPYRIGHT Zaid Izzah Nurbaain | All rights reserved.
-      </p>
+        <li
+          class="footer--section-page-copyright-text"
+          role="listitem"
+        >
+          &copy; 2025 COPYRIGHT Zaid Izzah Nurbaain - All rights reserved
+        </li>
+        <li
+          class="footer--section-page-copyright-text"
+          role="listitem"
+        >
+          Made with &#10084; by Zaid Izzah Nurbaain
+        </li>
+      </ul>
     </footer>
 
     <!-- Scripts main -->
     <script
-      src="https://www.zaidizzah.com/assets/src/script.js"
+      src="assets/src/script.js"
       type="text/javaScript"
     ></script>
   </body>

@@ -81,7 +81,12 @@ html {
 body {
   font-family: "Poppins", sans-serif;
   padding-top: calc(138.84px + 1px);
-  padding-bottom: 108px;
+  padding-bottom: 42.39px;
+  border-right: 1px solid var(--color-border--default);
+
+  @media screen and (max-width: 674px) {
+    padding-bottom: 64.79px;
+  }
 }
 
 .tooltip--section-page {
@@ -110,6 +115,7 @@ nav.navbar--section-page {
   align-items: center;
   padding: 16px 32px 16px var(--gap--medium);
   background-color: var(--color-background--default);
+  border-right: 1px solid var(--color-border--default);
   z-index: 1;
 }
 
@@ -224,7 +230,7 @@ div.banner-introduction {
   border-width: 1px 0 1px 0;
   border-style: solid;
   border-color: #54aeff66;
-  box-shadow: 0px -8px 12px -4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px -6px 14px -6px rgba(0, 0, 0, 0.1);
   z-index: 2;
 }
 
@@ -232,8 +238,7 @@ main.main--section-page {
   position: relative;
   background-color: var(--color-background--default);
   padding: calc(var(--gap--large) * 2) 32px;
-  border-bottom: 6px solid var(--color-border--primary);
-  box-shadow: 0 8px 12px 4px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid var(--color-border--default);
   overflow: hidden;
   z-index: 2;
 
@@ -778,11 +783,35 @@ footer.footer--section-page {
   left: 0;
   width: 100%;
   height: auto;
-  padding: calc(var(--gap--large) * 2);
-  background-color: var(--color-background--secondary);
+  padding: var(--gap--small) var(--gap);
+  background-color: var(--color-background--default);
+  border-right: 1px solid var(--color-border--default);
   text-align: center;
 
-  & > p.footer--section-page-copyright {
-    color: #eee;
+  & > ul.footer--section-page-copyright {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    /* gap: var(--gap--small); */
+  }
+
+  & > ul.footer--section-page-copyright li.footer--section-page-copyright-text {
+    position: relative;
+    color: var(--color-text--default);
+    font-size: 14px;
+    padding: 0 var(--gap--small) 0 var(--gap--small);
+    border-radius: 4px;
+  }
+
+  &
+    > ul.footer--section-page-copyright
+    li.footer--section-page-copyright-text:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    background-color: var(--color-border--default);
   }
 }
