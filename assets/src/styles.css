@@ -81,12 +81,7 @@ html {
 body {
   font-family: "Poppins", sans-serif;
   padding-top: calc(138.84px + 1px);
-  padding-bottom: 42.39px;
   border-right: 1px solid var(--color-border--default);
-
-  @media screen and (max-width: 674px) {
-    padding-bottom: 64.79px;
-  }
 }
 
 .tooltip--section-page {
@@ -241,6 +236,10 @@ main.main--section-page {
   border-bottom: 1px solid var(--color-border--default);
   overflow: hidden;
   z-index: 2;
+
+  @media screen and (max-width: 768px) {
+    padding: calc(var(--gap--large) * 2) 16px;
+  }
 
   &::after {
     content: "";
@@ -555,7 +554,7 @@ main.main--section-page
   margin-top: var(--gap--large);
   margin-bottom: var(--gap--large);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: var(--gap--small);
 }
 
@@ -753,8 +752,8 @@ main.main--section-page
   div.section--page-description-list-item-content {
   position: absolute;
   top: 0;
-  right: calc(-300px / 2);
-  width: calc(300px / 2);
+  right: calc(-300px / 1.5);
+  width: calc(300px / 1.5);
   height: inherit;
   background-color: #f1f1f1de;
   padding: var(--gap--small);
@@ -778,40 +777,15 @@ main.main--section-page
 }
 
 footer.footer--section-page {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
+  position: relative;
   padding: var(--gap--small) var(--gap);
   background-color: var(--color-background--default);
-  border-right: 1px solid var(--color-border--default);
-  text-align: center;
+  text-align: start;
 
-  & > ul.footer--section-page-copyright {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    /* gap: var(--gap--small); */
-  }
-
-  & > ul.footer--section-page-copyright li.footer--section-page-copyright-text {
-    position: relative;
+  & > p.footer--section-page-copyright {
     color: var(--color-text--default);
     font-size: 14px;
     padding: 0 var(--gap--small) 0 var(--gap--small);
     border-radius: 4px;
-  }
-
-  &
-    > ul.footer--section-page-copyright
-    li.footer--section-page-copyright-text:not(:last-child)::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 1px;
-    height: 100%;
-    background-color: var(--color-border--default);
   }
 }

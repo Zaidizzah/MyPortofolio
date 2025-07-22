@@ -1,0 +1,13 @@
+main.main--section-page
+  section.section--page.section--page-blog
+  :where(h1, h2, h3, h4, h5, h6).section--page-title {
+  border-bottom: 1px solid var(--color-border--default);
+}
+
+main.main--section-page
+  section.section--page.section--page-blog
+  div.section--page-description
+  div.section--page-description-contents {
+  position: relative;
+  width: inherit;
+}

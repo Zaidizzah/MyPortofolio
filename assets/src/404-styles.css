@@ -19,6 +19,13 @@ main.main--section--404-page {
   align-items: center;
   justify-content: center;
   position: relative;
+  padding: calc(var(--gap--large) * 2) 16px;
+  border-bottom: 1px solid var(--color-border--default);
+  overflow: hidden;
+
+  @media screen and (max-width: 768px) {
+    padding: calc(var(--gap--large) * 2) 0;
+  }
 
   &::before {
     content: "";
@@ -197,12 +204,18 @@ section.section--404-page-container
   color: #34d399;
 }
 
-section.section--404-page-container div.section--404-page-copyright {
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--color-border--tertiary);
-  font-size: 0.875rem;
-  color: #6b7280;
+footer.footer--section--404-page {
+  position: relative;
+  padding: var(--gap--small) var(--gap);
+  background-color: var(--color-background--default);
+  text-align: start;
+
+  & > p.footer--section--404-page-copyright {
+    color: var(--color-text--default);
+    font-size: 14px;
+    padding: 0 var(--gap--small) 0 var(--gap--small);
+    border-radius: 4px;
+  }
 }
 
 section.section--404-page-floating-shapes {
@@ -252,6 +265,43 @@ section.section--404-page-floating-shapes
   height: 90px;
   background-color: var(--color-background--primary);
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  animation: float 7s ease-in-out infinite;
+}
+
+section.section--404-page-floating-shapes
+  div.section--404-page-floating-shapes-shape.shape4 {
+  top: 10%;
+  right: 10%;
+  width: 400px;
+  height: 400px;
+  background-color: var(--color-background--primary);
+  clip-path: polygon(50% 0, 100% 38%, 81% 100%, 19% 100%, 0 38%);
+  animation: float 5s ease-in-out infinite;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
+
+section.section--404-page-floating-shapes
+  div.section--404-page-floating-shapes-shape.shape5 {
+  top: 35%;
+  left: 40%;
+  width: 200px;
+  height: 200px;
+  background-color: var(--color-background--primary);
+  clip-path: polygon(50% 0, 100% 75%, 50% 100%, 0 75%);
+  animation: float 6s ease-in-out infinite;
+}
+
+section.section--404-page-floating-shapes
+  div.section--404-page-floating-shapes-shape.shape6 {
+  bottom: 10%;
+  left: 40%;
+  width: 300px;
+  height: 300px;
+  background-color: var(--color-background--primary);
+  clip-path: polygon(0 0, 75% 0, 100% 50%, 75% 100%, 0 100%);
   animation: float 7s ease-in-out infinite;
 }
 

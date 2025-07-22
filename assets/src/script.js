@@ -1,4 +1,6 @@
-document.addEventListener("DOMContentLoaded", function () {
+(() => {
+  "use strict";
+
   const mainElement = document.querySelector("main.main--section-page");
   if (mainElement) {
     setTimeout(function () {
@@ -127,4 +129,4 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
-});
+})();
