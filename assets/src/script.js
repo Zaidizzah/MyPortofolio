@@ -9,45 +9,55 @@
   }
 
   // Scrolling animation triggered animation of progress bar skills
-  const skillBarObservers = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        // Trigger animation and adding width value
-        entry.target.classList.add("animate");
+  const skillBarObservers = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Trigger animation and adding width value
+          entry.target.classList.add("animate");
 
-        // Fill bar
-        const fillBar = entry.target.querySelector(
-          ".section--page-skills-bar-item-bar-fill"
-        );
-        if (fillBar && fillBar.dataset.value !== undefined) {
-          // FLEXBASIS property
-          fillBar.style.setProperty("--flex-basis", `${fillBar.dataset.value}`);
-          fillBar.style.flexBasis = fillBar.dataset.value;
+          // Fill bar
+          const fillBar = entry.target.querySelector(
+            ".section--page-skills-bar-item-bar-fill"
+          );
+          if (fillBar && fillBar.dataset.value !== undefined) {
+            // FLEXBASIS property
+            fillBar.style.setProperty(
+              "--flex-basis",
+              `${fillBar.dataset.value}`
+            );
+            fillBar.style.flexBasis = fillBar.dataset.value;
 
-          // WIDTH property
-          fillBar.style.setProperty("--width", `${fillBar.dataset.value}`);
-          fillBar.style.width = fillBar.dataset.value;
+            // WIDTH property
+            fillBar.style.setProperty("--width", `${fillBar.dataset.value}`);
+            fillBar.style.width = fillBar.dataset.value;
+          }
+
+          // Empty bar
+          const emptyBar = entry.target.querySelector(
+            ".section--page-skills-bar-item-bar-empty"
+          );
+          if (emptyBar && emptyBar.dataset.value !== undefined) {
+            // FLEXBASIS property
+            emptyBar.style.setProperty("--flex-basis", emptyBar.dataset.value);
+            emptyBar.style.flexBasis = emptyBar.dataset.value;
+
+            // WIDTH property
+            emptyBar.style.setProperty("--width", emptyBar.dataset.value);
+            emptyBar.style.width = emptyBar.dataset.value;
+          }
+
+          // Unobserve element
+          skillBarObservers.unobserve(entry.target);
         }
-
-        // Empty bar
-        const emptyBar = entry.target.querySelector(
-          ".section--page-skills-bar-item-bar-empty"
-        );
-        if (emptyBar && emptyBar.dataset.value !== undefined) {
-          // FLEXBASIS property
-          emptyBar.style.setProperty("--flex-basis", emptyBar.dataset.value);
-          emptyBar.style.flexBasis = emptyBar.dataset.value;
-
-          // WIDTH property
-          emptyBar.style.setProperty("--width", emptyBar.dataset.value);
-          emptyBar.style.width = emptyBar.dataset.value;
-        }
-
-        // Unobserve element
-        skillBarObservers.unobserve(entry.target);
-      }
-    });
-  });
+      });
+    },
+    {
+      root: null,
+      rootMargin: "0px 0px -10% 0px", // aktif sedikit sebelum benar-benar terlihat
+      threshold: 0.1, // minimal 10% bagian elemen terlihat
+    }
+  );
 
   const skillBarElements = document.querySelectorAll(
     ".section--page-skills-bar-item-bar"
@@ -127,6 +137,19 @@
       if (element.role === undefined || element.role !== "heading") {
         element.setAttribute("role", "heading");
       }
+    });
+  }
+
+  // Button toggle for expanding projects listener
+  const expandProjectsButton = document.querySelector(
+      "div.section--page-description-list-expand-toggle button"
+    ),
+    projectList = document.querySelector("div.section--page-description-list");
+
+  if (expandProjectsButton && projectList) {
+    expandProjectsButton.addEventListener("click", function () {
+      expandProjectsButton.classList.toggle("toggled");
+      projectList.classList.toggle("expanded");
     });
   }
 })();

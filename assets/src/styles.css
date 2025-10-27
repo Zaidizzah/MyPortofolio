@@ -134,6 +134,8 @@ nav.navbar--section-page
   height: auto;
   background-color: var(--color-background--default);
   border-radius: 8px;
+  box-shadow: none;
+  transition: border 1s ease-in-out, box-shadow 0.8s linear;
 }
 
 nav.navbar--section-page div.navbar--section-page-content {
@@ -150,6 +152,10 @@ nav.navbar--section-page div.navbar--section-page-content {
   transition: opacity 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275),
     transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   z-index: 1;
+
+  @media screen and (max-width: 768px) {
+    transition: transform 0.7s ease-in-out;
+  }
 }
 
 nav.navbar--section-page
@@ -159,6 +165,63 @@ nav.navbar--section-page
   ~ div.navbar--section-page-content {
   opacity: 1;
   transform: translateX(0);
+
+  @media screen and (max-width: 768px) {
+    opacity: 1;
+    transform: translateX(0);
+    position: fixed;
+    z-index: 3;
+  }
+}
+
+nav.navbar--section-page:has(.navbar--section-page-toggle-checkbox:checked)
+  > div.navbar--section-page-toggle {
+  box-shadow: none;
+}
+
+@media screen and (max-width: 768px) {
+  nav.navbar--section-page:has(.navbar--section-page-toggle-checkbox:checked) {
+    z-index: 4;
+
+    & > div.navbar--section-page-content {
+      padding: calc(111px + 24px * 2) 16px 0 24px;
+    }
+
+    & div.navbar--section-page-content ul.navbar--section-page-list {
+      height: auto;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &
+      div.navbar--section-page-content
+      ul.navbar--section-page-list
+      li.navbar--section-page-item {
+      width: inherit;
+      margin: var(--gap--medium) 0;
+    }
+
+    &
+      div.navbar--section-page-content
+      ul.navbar--section-page-list
+      li.navbar--section-page-item
+      a {
+      font-size: 32px;
+    }
+  }
+  body:has(.navbar--section-page-toggle-checkbox:checked) {
+    overflow: hidden;
+  }
+
+  nav.navbar--section-page:has(.navbar--section-page-toggle-checkbox:checked)
+    a.navbar--section-page-logo {
+    z-index: 4;
+
+    & > img.navbar--section-page-logo-img {
+      border: 1px solid var(--color-border--default);
+      box-shadow: 8px 12px 0 0 var(--color-background--light);
+    }
+  }
 }
 
 nav.navbar--section-page
@@ -187,7 +250,11 @@ nav.navbar--section-page div.navbar--section-page-toggle {
   position: relative;
   display: block;
   overflow: hidden;
-  z-index: 2;
+  outline: 2.5px solid var(--color-text--dark);
+  border-radius: 2px;
+  box-shadow: 6px 8px 0 0 var(--color-background--light);
+  z-index: 4;
+  transition: box-shadow 0.5s ease-in-out;
 }
 nav.navbar--section-page
   div.navbar--section-page-toggle
@@ -461,7 +528,8 @@ main.main--section-page
   & > .section--page-skills-bar-item-bar-empty,
   & > .section--page-skills-bar-item-bar-fill {
     height: inherit;
-    width: 0px;
+    width: 0;
+    flex-basis: 0;
     transition: width 3s ease, flex-basis 3s ease;
   }
 
@@ -549,13 +617,86 @@ main.main--section-page
 
 main.main--section-page
   section.section--page.section--page-projects
+  div.section--page-description-list-expand-toggle {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: none;
+  border: 1px solid var(--color-border--default);
+  height: 40px;
+  margin: var(--gap--medium) 0;
+
+  & > button {
+    position: inherit;
+    height: calc(40px - 2px);
+    width: 32px;
+    border-width: 0 1px 0 0;
+    border-style: solid;
+    border-color: var(--color-border--default);
+    background-color: var(--color-background--default);
+    margin-bottom: 1px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out;
+  }
+
+  & > button:hover {
+    background-color: var(--color-background--light);
+    box-shadow: inset 1px 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  & > button::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid var(--color-text--default);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  & > button.toggled::after {
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+
+  & > span {
+    position: inherit;
+    margin-left: var(--gap--medium);
+  }
+
+  &:has(button.toggled) > span::after {
+    content: "Perkecil";
+  }
+
+  &:not(:has(button.toggled)) > span::after {
+    content: "Perluas";
+  }
+}
+
+main.main--section-page
+  section.section--page.section--page-projects
   div.section--page-description-list {
   position: relative;
   margin-top: var(--gap--large);
   margin-bottom: var(--gap--large);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--gap--small);
+  max-height: calc(300px + var(--gap--small) - 1px);
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+}
+
+main.main--section-page
+  section.section--page.section--page-projects
+  div.section--page-description-list.expanded {
+  max-height: max-content;
+  overflow-y: auto;
 }
 
 main.main--section-page
@@ -564,6 +705,7 @@ main.main--section-page
   div.section--page-description-list-item {
   position: relative;
   height: 300px;
+  width: auto;
   overflow: hidden;
   cursor: pointer;
   padding: var(--gap--small) var(--gap--small) var(--gap--small) 0;
