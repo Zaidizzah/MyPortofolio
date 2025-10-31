@@ -152,4 +152,25 @@
       projectList.classList.toggle("expanded");
     });
   }
+
+  // Change default action from permalink tag to ScrollToView behavior
+  const permalinkElements = document.querySelectorAll("a[href^='#']");
+
+  if (permalinkElements) {
+    permalinkElements.forEach((element) => {
+      element.addEventListener("click", function (event) {
+        event.preventDefault();
+        const targetElement = document.getElementById(
+          this.getAttribute("href").substring(1)
+        );
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+            inline: "nearest",
+          });
+        }
+      });
+    });
+  }
 })();
