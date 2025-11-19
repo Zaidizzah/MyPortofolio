@@ -737,6 +737,10 @@ main.main--section-page
     margin-bottom: 1px;
     cursor: pointer;
     transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out;
+
+    @media screen and (max-width: 768px) {
+      height: calc(40px - 3px);
+    }
   }
 
   & > button:hover {
@@ -995,6 +999,8 @@ main.main--section-page
   right: calc(-300px / 1.5);
   width: calc(300px / 1.5);
   height: inherit;
+  overflow-y: auto;
+  scrollbar-width: thin;
   background-color: #f1f1f1de;
   padding: var(--gap--small);
   border-left: 2px solid;
