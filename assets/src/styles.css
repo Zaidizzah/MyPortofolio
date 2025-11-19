@@ -113,20 +113,7 @@ nav.navbar--section-page {
   border-right: 1px solid var(--color-border--default);
   z-index: 1;
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 0;
-    background-color: none;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.7s ease-in-out, visibility 0.6s ease-in-out,
-      background-color 0.8s ease-in-out, width 0.7s ease-in-out;
-  }
-
+  &::before,
   &::after {
     content: "";
     position: absolute;
@@ -181,7 +168,8 @@ nav.navbar--section-page div.navbar--section-page-content {
     transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   z-index: 1;
 
-  &::before {
+  &::before,
+  &::after {
     content: "";
     position: sticky;
     display: inline-block;
@@ -197,18 +185,8 @@ nav.navbar--section-page div.navbar--section-page-content {
   }
 
   &::after {
-    content: "";
-    position: sticky;
-    display: inline-block;
+    top: unset;
     bottom: 0;
-    left: 0;
-    width: 0;
-    height: 0;
-    background: none;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.7s ease-in-out, visibility 0.6s ease-in-out,
-      background 0.8s ease-in-out, width 0.7s ease-in-out;
   }
 
   @media screen and (max-width: 768px) {
