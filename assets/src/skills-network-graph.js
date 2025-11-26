@@ -8,40 +8,40 @@
   SKILLS_NETWORK_STYLE.role = "stylesheet";
   SKILLS_NETWORK_STYLE.ariaLabel = "Style for Skills Network Graph";
   SKILLS_NETWORK_STYLE.innerHTML = `
-        #skills-network-canvas {
-          position: relative;
-          width: 100%;
-          height: 100%;
-        }
-  
-        #skills-network-canvas {
-              width: 100%;
-              height: 600px;
-              max-height: 1200px;
-              margin-top: var(--gap--small);
-              background-color: var(--color-background--default);
-              border: 1px solid var(--color-border--tertiary);
-              box-shadow: 8px 12px 0 0 var(--color-background--light);
-              cursor: grab;
-              opacity: 0;
-              animation: fadeIn 1.5s ease-in forwards;
+          #skills-network-canvas {
+            position: relative;
+            width: 100%;
+            height: 100%;
           }
-  
-          #skills-network-canvas:active {
-              cursor: grabbing;
-          }
-  
-          @keyframes fadeIn {
-              from {
-                  opacity: 0;
-                  transform: scale(0.95);
-              }
-              to {
-                  opacity: 1;
-                  transform: scale(1);
-              }
-          }
-      `;
+    
+          #skills-network-canvas {
+                width: 100%;
+                height: 600px;
+                max-height: 1200px;
+                margin-top: var(--gap--small);
+                background-color: var(--color-background--default);
+                border: 1px solid var(--color-border--tertiary);
+                box-shadow: 8px 12px 0 0 var(--color-background--light);
+                cursor: grab;
+                opacity: 0;
+                animation: fadeIn 1.5s ease-in forwards;
+            }
+    
+            #skills-network-canvas:active {
+                cursor: grabbing;
+            }
+    
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: scale(0.95);
+                }
+                to {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+        `;
   document.head.appendChild(SKILLS_NETWORK_STYLE);
 
   // Check if SKILLS_NETWORK_STYLE is appended in head
@@ -152,15 +152,79 @@
     animationStartTime = null,
     animationStarted = false;
 
-  // Create connections based on categories and proximity
-  for (let i = 0; i < NODES.length; i++) {
-    for (let j = i + 1; j < NODES.length; j++) {
-      // Connect nodes in same category or randomly
-      if (NODES[i].category === NODES[j].category || Math.random() > 0.7) {
-        CONNECTIONS_SET.push({ source: i, target: j });
+  // IMPROVED CONNECTION LOGIC - Fixed and deterministic
+  function createConnections() {
+    // Group nodes by category
+    const nodesByCategory = {};
+    NODES.forEach((node, index) => {
+      if (!nodesByCategory[node.category]) {
+        nodesByCategory[node.category] = [];
+      }
+      nodesByCategory[node.category].push(index);
+    });
+
+    // Connect nodes within same category (but not all to all, only nearby)
+    for (let category in nodesByCategory) {
+      const nodesInCategory = nodesByCategory[category];
+
+      // Only connect each node to 2-3 nearest neighbors in same category
+      for (let i = 0; i < nodesInCategory.length; i++) {
+        const currentNode = nodesInCategory[i];
+
+        // Connect to next 1-2 nodes in the same category
+        for (let j = 1; j <= 2 && i + j < nodesInCategory.length; j++) {
+          const targetNode = nodesInCategory[i + j];
+          CONNECTIONS_SET.push({ source: currentNode, target: targetNode });
+        }
       }
     }
+
+    // Add some cross-category connections for related technologies
+    const crossCategoryConnections = [
+      // Frontend to Backend
+      { from: "JavaScript", to: "Node.js" },
+      { from: "HTML", to: "PHP" },
+      { from: "JavaScript", to: "REST API" },
+
+      // Backend to Database
+      { from: "PHP", to: "MySQL" },
+      { from: "Node.js", to: "PostgreSQL" },
+      { from: "Laravel", to: "MySQL" },
+      { from: "Codeigniter", to: "MySQL" },
+      { from: "C#", to: "PostgreSQL" },
+      { from: ".NET", to: "PostgreSQL" },
+
+      // Backend to DevOps
+      { from: "Node.js", to: "Docker" },
+      { from: "PHP", to: "Git" },
+      { from: "Laravel", to: "Git" },
+
+      // Related backend technologies
+      { from: "C#", to: ".NET" },
+      { from: "C#", to: "C# Windows Forms" },
+      { from: "C#", to: "C# WPF" },
+      { from: "Visual Basic", to: "Microsoft Access" },
+      { from: "PHP", to: "Laravel" },
+      { from: "PHP", to: "Codeigniter" },
+
+      // Database connections
+      { from: "MySQL", to: "PostgreSQL" },
+      { from: "SQLite", to: "MySQL" },
+    ];
+
+    // Add cross-category connections
+    crossCategoryConnections.forEach((conn) => {
+      const sourceIndex = NODES.findIndex((n) => n.label === conn.from);
+      const targetIndex = NODES.findIndex((n) => n.label === conn.to);
+
+      if (sourceIndex !== -1 && targetIndex !== -1) {
+        CONNECTIONS_SET.push({ source: sourceIndex, target: targetIndex });
+      }
+    });
   }
+
+  // Create connections using the new logic
+  createConnections();
 
   // Get mouse/touch position
   function getEventPosition(e) {
@@ -395,7 +459,7 @@
         }
       }
 
-      // Spring forces on connections
+      // REDUCED spring forces - only apply weak force to directly connected nodes
       for (let conn of CONNECTIONS_SET) {
         const source = NODES[conn.source];
         const target = NODES[conn.target];
@@ -403,13 +467,18 @@
         if (node !== source && node !== target) continue;
 
         const other = node === source ? target : source;
+
+        // Skip spring force if the other node is being dragged
+        if (other === draggedNode && isDragging) continue;
+
         const dx = other.x - node.x;
         const dy = other.y - node.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
         const idealDist = 150;
 
         if (dist > 0) {
-          const force = ((dist - idealDist) / idealDist) * 0.1;
+          // REDUCED force from 0.1 to 0.03 - makes connections more loose
+          const force = ((dist - idealDist) / idealDist) * 0.03;
           node.vx += (dx / dist) * force;
           node.vy += (dy / dist) * force;
         }
