@@ -513,6 +513,123 @@ main.main--section-page section.section--page.section--page-hero {
       width: 100%;
     }
   }
+
+  & > .section--page-content .section--page-description .dropdown {
+    position: relative;
+    max-width: 300px;
+    width: max-content;
+    height: auto;
+  }
+
+  &
+    > .section--page-content
+    .section--page-description
+    .dropdown
+    div.btn-activate-dropdown[role="button"] {
+    position: inherit;
+    width: auto;
+
+    & > input[type="checkbox"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      opacity: 0;
+    }
+
+    & > label {
+      display: block;
+      border: 1px solid var(--color-border--dark);
+      border-radius: 3px;
+      padding: 0 3px 0;
+      background-color: buttonface;
+      color: buttontext;
+      cursor: pointer;
+    }
+
+    & > label:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &
+    > .section--page-content
+    .section--page-description
+    .dropdown:has(
+      div.btn-activate-dropdown[role="button"] > input[type="checkbox"]:checked
+    )
+    .dropdown-menu {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &
+    > .section--page-content
+    .section--page-description
+    .dropdown
+    .dropdown-menu {
+    position: absolute;
+    bottom: auto;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-top: 5px;
+    border: 1px solid var(--color-border--default);
+    width: 100%;
+    background-color: var(--color-background--default);
+    border-radius: 3px;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity cubic-bezier(0.445, 0.05, 0.55, 0.95) 0.3s;
+  }
+
+  &
+    > .section--page-content
+    .section--page-description
+    .dropdown
+    .dropdown-menu
+    .dropdown-menu-item:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-width: 1px 0 1px 0;
+    border-style: solid;
+    border-color: var(--color-border--default);
+
+    &:only-child {
+      border: none;
+    }
+
+    &:first-child {
+      border-width: 0 0 1px 0;
+    }
+
+    &:last-child {
+      border-width: 1px 0 0 0;
+    }
+  }
+
+  &
+    > .section--page-content
+    .section--page-description
+    .dropdown
+    .dropdown-menu
+    .dropdown-menu-item
+    a {
+    display: block;
+    padding: 3px;
+  }
+
+  &
+    > .section--page-content
+    .section--page-description
+    .dropdown
+    .dropdown-menu
+    .dropdown-menu-item
+    a:hover::before {
+    visibility: hidden !important;
+  }
 }
 
 main.main--section-page

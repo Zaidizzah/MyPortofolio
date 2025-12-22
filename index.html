@@ -290,16 +290,30 @@
               Web Developer | Dekstop Application Developer | Backend Developer
               | Frontend Developer | Pixel Art Designer | UI/UX Designer
             </p>
-            <p>
-              <a
-                href="https://www.zaidizzah.com/assets/documents/cv-zaid-izzah-nurbaain.pdf"
-                role="button"
-                target="_blank"
-                data-tooltip="true"
-                data-tooltip-title="Unduh CV saya"
-                >Download CV</a
-              >
-            </p>
+            <div class="dropdown" id="dropdown-for-cv" aria-owns="btn-download-cv dropdown-menu-for-cv">
+              <div class="btn-activate-dropdown" id="btn-activate-dropdown" role="button" aria-controls="dropdown-for-cv" title="Toggle dropdown">
+                <input
+                  type="checkbox"
+                  role="checkbox"
+                  id="btn-download-cv"
+                  />
+                <label for="btn-download-cv">Download CV</label>
+              </div>
+              <ul class="dropdown-menu" id="dropdown-menu-for-cv" role="menu">
+                <li class="dropdown-menu-item" role="menuitem">
+                  <a href="https://www.zaidizzah.com/assets/documents/cv-zaid-izzah-nurbaain-indonesian-version.pdf" 
+                    target="_blank"
+                    data-tooltip="true"
+                    data-tooltip-title="Unduh CV Saya (Bahasa Indonesia)">Indonesia</a>
+                </li>
+                <li class="dropdown-menu-item" role="menuitem">
+                  <a href="https://www.zaidizzah.com/assets/documents/cv-zaid-izzah-nurbaain-english-version.pdf" 
+                    target="_blank"
+                    data-tooltip="true"
+                    data-tooltip-title="Unduh CV Saya (Bahasa Inggris)">English</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
