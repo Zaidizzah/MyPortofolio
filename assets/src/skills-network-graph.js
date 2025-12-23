@@ -46,7 +46,9 @@
 
   // Check if SKILLS_NETWORK_STYLE is appended in head
   if (document.head.contains(SKILLS_NETWORK_STYLE)) {
-    console.log("SKILLS_NETWORK_STYLE is appended in head");
+    console.log(
+      "SKILL NETWORK GRAPH: SKILLS_NETWORK_STYLE is appended in head"
+    );
   } else {
     console.warn("SKILLS_NETWORK_STYLE is not appended in head");
     return;
@@ -407,7 +409,7 @@
     // Enable physics once all nodes have reached their targets
     if (allNodesReached && !physicsEnabled) {
       physicsEnabled = true;
-      console.log("Animation complete, physics enabled");
+      console.log("SKILL NETWORK GRAPH: Animation complete, physics enabled");
     }
   }
 

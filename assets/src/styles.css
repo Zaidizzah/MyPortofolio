@@ -446,6 +446,10 @@ main.main--section-page {
     background-color: #fffefe;
     border-width: 0px;
   }
+
+  &:has(section.section--page.section--page-document-viewer) {
+    padding-bottom: 0;
+  }
 }
 
 main.main--section-page section.section--page:not(:last-child) {
@@ -488,6 +492,37 @@ main.main--section-page
   line-height: 1.5;
 }
 
+main.main--section-page
+  section.section--page.section--page-document-viewer
+  div.section--page-content {
+  position: relative;
+
+  & > h1.section--page-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    z-index: 0;
+  }
+
+  & > iframe {
+    position: inherit;
+    width: calc(100% + 32px * 2);
+    height: 1000px;
+    margin: 0 0 -10px -32px;
+    border: 1px solid var(--color-border--dark);
+    z-index: 1;
+
+    @media (max-width: 769px) {
+      margin-bottom: -8px;
+      width: calc(100% + 32px + 5px);
+      margin-left: -19px;
+    }
+  }
+}
+
 main.main--section-page section.section--page.section--page-hero {
   position: relative;
   display: flex;
@@ -519,6 +554,7 @@ main.main--section-page section.section--page.section--page-hero {
     max-width: 300px;
     width: max-content;
     height: auto;
+    z-index: 2;
   }
 
   &
